@@ -1,0 +1,9 @@
+.fundoAzul{
+    background-color: blue;
+}
+.fundoVermelho{
+    background-color: red;
+}
+.textoMaiusculo{
+    text-transform: uppercase;
+}
