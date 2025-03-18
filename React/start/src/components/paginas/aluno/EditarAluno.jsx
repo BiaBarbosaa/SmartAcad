@@ -6,7 +6,7 @@ import Navbar from '../../template/Navbar';
 import Sidebar from '../../template/Sidebar';
 import MainEditarAluno from '../../MainEditarAluno'
 
-function EditarAluno() {
+function                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            EditarAluno() {
     return (
         <>
             <Navbar />
