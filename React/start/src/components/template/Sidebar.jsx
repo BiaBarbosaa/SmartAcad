@@ -103,7 +103,7 @@ function Sidebar() {
                 <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                   <li className="nav-item">
                     <Link
-                      to="/cadastrar-compra"
+                      to="/cadastrar-contrato"
                       className="nav-link d-inline-flex text-decoration-none rounded text-dark"
                     >
                       Cadastrar
@@ -111,7 +111,7 @@ function Sidebar() {
                   </li>
                   <li className="nav-item">
                     <Link
-                      to="/listar-compra"
+                      to="/listar-contrato"
                       className="nav-link d-inline-flex text-decoration-none rounded text-dark"
                     >
                       Listar

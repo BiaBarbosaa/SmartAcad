@@ -92,3 +92,39 @@
 
   
 }
+.botao-cadastrar{
+  background-color: #F98E8E;
+  border: 1px solid #F84C4C;
+  transition: background-color 0.3s, border-color 0.3s; 
+
+}
+input.form-control:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+select.form-control:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+textarea.form-control:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+textarea.form-control:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+
+.botao-cadastrar:hover {
+  background-color: #F84C4C; 
+  border-color: #F82C2C; 
+}
+.botao-cadastrar:active {
+  background-color: #F74C4C !important; 
+  border-color: #F70000 !important; 
+}

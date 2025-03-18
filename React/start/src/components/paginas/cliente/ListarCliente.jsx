@@ -1,15 +1,15 @@
-import MainListarAluno from "../../MainListarAluno";
+import MainListarCliente from "../../MainListarCliente";
 import Navbar from "../../template/Navbar";
 import Sidebar from "../../template/Sidebar";
 
-function ListarAluno() {
+function ListarCliente() {
     return (
         <>
            <Navbar />
             <div className="container-fluid">
                 <div className="row">
                     <Sidebar />
-                    <MainListarAluno />
+                    <MainListarCliente />
 
                 </div>
             </div>
@@ -17,4 +17,4 @@ function ListarAluno() {
         </>
     )
 }
-export default ListarAluno;
+export default ListarCliente;

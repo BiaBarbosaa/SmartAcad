@@ -1,23 +1,20 @@
-/* Usando CSS como modulo */
-//import style from './Home.module.css'
-
-import './Aluno.css'
+import './contrato.css'
 import Navbar from '../../template/Navbar';
 import Sidebar from '../../template/Sidebar';
-import MainEditarAluno from '../../MainEditarAluno'
+import MainEditarContrato from '../../MainEditarContrato'
 
-function EditarAluno() {
+function EditarContrato() {
     return (
         <>
             <Navbar />
             <div className="container-fluid">
                 <div className="row">
                     <Sidebar />
-                    <MainEditarAluno />
+                    <MainEditarContrato />
 
                 </div>
             </div>
         </ >
     );
 }
-export default EditarAluno;
+export default EditarContrato;

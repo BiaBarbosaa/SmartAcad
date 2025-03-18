@@ -1,0 +1,94 @@
+
+.fundo-branco{
+  background-color: #E5E6E9;
+  
+}
+.formulario{
+  margin-top: 2%;
+  background-color: #fa3999;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  border: 1px solid #868A9D;
+
+}
+.conteudo-forms{
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.botao-editar{
+background-color: #8BBBC3;
+border: 1px solid #438892;
+transition: background-color 0.3s, border-color 0.3s; 
+
+}
+.botao-editar:hover {
+background-color: #098da1; 
+border-color: #037c8f; 
+}
+.botao-editar:active {
+background-color: #098da1 !important; 
+border-color: #037c8f !important; 
+}
+
+.botao-cancelar{
+background-color: #F98E8E;
+border: 1px solid #F84C4C;
+transition: background-color 0.3s, border-color 0.3s;
+
+}
+.botao-cancelar:hover {
+background-color: #F84C4C; 
+border-color: #F82C2C; 
+}
+.botao-cancelar:active {
+background-color: #F74C4C !important; 
+border-color: #F70000 !important; 
+}
+
+.container-botao {
+display: flex; /* Coloca os botões lado a lado */
+align-items: center; /* Centraliza verticalmente os botões */
+gap: -500px; /* Adiciona um espaçamento entre os botões */
+/* background-color: #fa3999; */
+width: 17%;
+padding: 10px; /* Adiciona um padding para melhorar a aparência */
+}
+
+.container-btn {
+/* background-color: blue; */
+width: 15%;
+}
+
+.botao-editar, .botao-cancelar {
+/* flex: 1; /* Faz com que os botões ocupem o espaço disponível */
+/* padding: 10px; /* Ajusta o padding para melhorar a aparência */
+/*font-size: 16px; /* Ajusta o tamanho da fonte */
+/* border: none;
+/* border-radius: 5px; */
+/*cursor: pointer; */
+}
+
+/* .botao-editar {
+background-color: #007bff; Cor de fundo do Bootstrap primary
+color: white;
+} */
+
+/* .botao-cancelar {
+background-color: #6c757d; /* Cor de fundo do Bootstrap secondary */
+/*color: white;*/
+/*} */
+.table th {
+
+background-color: #FA5556 !important; /* Caso queira garantir a cor nos <th> */
+}
+.tabela{
+width: 100%;
+background-color: #133bb1;
+}
+
