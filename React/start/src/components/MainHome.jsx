@@ -19,13 +19,13 @@ function MainHome() {
         { name: "Anual", value: 15 },
     ];
 
-    const COLORS = ["#0088FE", "#00C49F", "#FFBB28"];
+    const COLORS = ["#127dda", "#34D838", "#FFEA00"];
 
     const dataBar = [
-        { name: "Jan", Musculação: 80, Spinning: 40, Zumba: 30 },
-        { name: "Fev", Musculação: 100, Spinning: 50, Zumba: 40 },
-        { name: "Mar", Musculação: 120, Spinning: 60, Zumba: 50 },
-        { name: "Abr", Musculação: 140, Spinning: 70, Zumba: 60 },
+        { name: "Jan", Musculação: 80, Spinning: 40, Zumba: 30, Personal: 60},
+        { name: "Fev", Musculação: 100, Spinning: 50, Zumba: 40, Personal: 85 },
+        { name: "Mar", Musculação: 120, Spinning: 60, Zumba: 50, Personal: 70 },
+        { name: "Abr", Musculação: 140, Spinning: 70, Zumba: 60, Personal: 100 },
     ];
     return (
         <>
@@ -44,8 +44,8 @@ function MainHome() {
                                     <YAxis />
                                     <Tooltip />
                                     <Legend />
-                                    <Line type="monotone" dataKey="ativos" stroke="#0088FE" strokeWidth={2} />
-                                    <Line type="monotone" dataKey="inativos" stroke="#FF0000" strokeWidth={2} />
+                                    <Line type="monotone" dataKey="ativos" stroke="#308B99" strokeWidth={2} />
+                                    <Line type="monotone" dataKey="inativos" stroke="#FF3131" strokeWidth={2} />
                                 </LineChart>
                             </ResponsiveContainer>
                         </div>
@@ -74,8 +74,9 @@ function MainHome() {
                                     <Tooltip />
                                     <Legend />
                                     <Bar dataKey="Musculação" fill="#FF0000" />
-                                    <Bar dataKey="Spinning" fill="#0088FE" />
-                                    <Bar dataKey="Zumba" fill="#00C49F" />
+                                    <Bar dataKey="Spinning" fill="#308B99" />
+                                    <Bar dataKey="Zumba" fill="#FFEA00" />
+                                    <Bar dataKey="Personal" fill="#34D838" />
                                 </BarChart>
                             </ResponsiveContainer>
                         </div>
