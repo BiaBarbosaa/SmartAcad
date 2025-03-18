@@ -6,17 +6,17 @@ function Sidebar() {
     Verifica se a rota atual pertence a uma das rotas rastreadas abaixo
   */
  
-  let possuiEditarUrl = window.location.pathname;
+  let editar = window.location.pathname;
 
   const areaCliente =
     pagina.pathname === "/cadastrar-cliente" ||
     pagina.pathname === "/listar-cliente" ||
-    possuiEditarUrl.match(/editar-cliente/)
+    editar.match(/editar-cliente/)
 
     const areaContrato =
     pagina.pathname === "/cadastrar-contrato" ||
     pagina.pathname === "/listar-contrato" ||
-    possuiEditarUrl.match(/editar-contrato/)
+    editar.match(/editar-contrato/)
 
 
 
