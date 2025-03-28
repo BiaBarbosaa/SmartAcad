@@ -1,11 +1,14 @@
 
-.fundo-branco{
+
+.BBfundo-branco{
   background-color: #E5E6E9;
+
+  
   
 }
-.formulario{
-  margin-top: 2%;
-  background-color: #fa3999;
+.BB1formulario{
+  margin-top: 3%;
+  background-color: #F3F4F5;
   height: 100%;
   display: flex;
   align-items: center;
@@ -13,8 +16,10 @@
   border-radius: 30px;
   border: 1px solid #868A9D;
 
+
 }
-.conteudo-forms{
+
+.BBconteudo-forms{
   padding: 30px;
   display: flex;
   align-items: center;
