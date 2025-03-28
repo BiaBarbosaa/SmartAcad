@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom";
 import Navbar from "../../template/Navbar";
 import Sidebar from "../../template/Sidebar";
+
 function NotFound() {
     return (
         <>
@@ -10,8 +12,17 @@ function NotFound() {
 
                     <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 
-                        <img src="https://static.criandoblogs.net/wp/wp-content/uploads/2022/12/pagina-de-erro-404-1000x563.jpg" alt="" srcset="" />
-                    </main>
+                     
+
+                        <div className="error-container">
+                            <div className="lottie-animation"></div>
+                            <div className="error-content">
+                                <h1>404</h1>
+                                <p>Oops! A página que você está procurando não existe.</p>
+                                <Link to="/" class="btn btn-primary">Voltar</Link>
+                            </div>
+                        </div>                   
+                         </main>
 
                 </div>
             </div>
