@@ -6,7 +6,7 @@ function Sidebar() {
     Verifica se a rota atual pertence a uma das rotas rastreadas abaixo
   */
  
-  let editar = window.location.pathname;
+  let editar = window.location.pathname; //retorna o caminho e o nome do arquivo da página atual
 
   const areaCliente =
     pagina.pathname === "/cadastrar-cliente" ||
