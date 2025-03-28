@@ -15,7 +15,6 @@ import EditarContrato from "./components/paginas/contrato/EditarContrato"
 
 
 
-
 function App() {
   return (
     <>

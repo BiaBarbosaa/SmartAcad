@@ -1,11 +1,14 @@
 
-.fundo-branco{
+
+.BBfundo-branco{
   background-color: #E5E6E9;
+
+  
   
 }
-.formulario{
-  margin-top: 2%;
-  background-color: #fa3999;
+.BB1formulario{
+  margin-top: 3%;
+  background-color: #F3F4F5;
   height: 100%;
   display: flex;
   align-items: center;
@@ -13,8 +16,10 @@
   border-radius: 30px;
   border: 1px solid #868A9D;
 
+
 }
-.conteudo-forms{
+
+.BBconteudo-forms{
   padding: 30px;
   display: flex;
   align-items: center;
@@ -62,27 +67,9 @@ padding: 10px; /* Adiciona um padding para melhorar a aparência */
 
 .container-btn {
 /* background-color: blue; */
-width: 15%;
+width: 20%;
 }
 
-.botao-editar, .botao-cancelar {
-/* flex: 1; /* Faz com que os botões ocupem o espaço disponível */
-/* padding: 10px; /* Ajusta o padding para melhorar a aparência */
-/*font-size: 16px; /* Ajusta o tamanho da fonte */
-/* border: none;
-/* border-radius: 5px; */
-/*cursor: pointer; */
-}
-
-/* .botao-editar {
-background-color: #007bff; Cor de fundo do Bootstrap primary
-color: white;
-} */
-
-/* .botao-cancelar {
-background-color: #6c757d; /* Cor de fundo do Bootstrap secondary */
-/*color: white;*/
-/*} */
 .table th {
 
 background-color: #FA5556 !important; /* Caso queira garantir a cor nos <th> */

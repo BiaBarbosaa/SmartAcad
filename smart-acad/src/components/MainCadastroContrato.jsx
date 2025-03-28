@@ -49,12 +49,12 @@ function MainCadastroContrato() {
     return (
         <>
 
-            {/* <main className="BBcor col-md-9 ms-sm-auto col-lg-10 px-md-4"> */}
+       
 
-            <main className="fundo-branco col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <main className="BBfundo-branco col-md-9 ms-sm-auto col-lg-10 px-md-4">
 
-                <div className="formulario">
-                    <div className="conteudo-forms">
+                <div className="BB2formulario">
+                    <div className="BBconteudo-forms">
 
                         <form onSubmit={cadastrarContrato} className="row g-3">
                             <h4>Cadastro de contrato</h4>

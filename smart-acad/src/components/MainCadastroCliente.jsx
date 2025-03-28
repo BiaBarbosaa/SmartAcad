@@ -89,11 +89,12 @@ function MainCadastroCliente() {
         <>
 
             {/* <main className="BBcor col-md-9 ms-sm-auto col-lg-10 px-md-4"> */}
+           
 
-            <main className="fundo-branco col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <main className="BBfundo-branco col-md-9 ms-sm-auto col-lg-10 px-md-4">
 
-                <div className="formulario">
-                    <div className="conteudo-forms">
+                <div className="BB1formulario">
+                    <div className="BBconteudo-forms">
 
                         <form onSubmit={cadastrarCliente} className="row g-3">
                             <h4>Cadastro de clientes</h4>
@@ -176,7 +177,7 @@ function MainCadastroCliente() {
                 </div>
 
             </main>
-
+            
         </>
     )
 }
