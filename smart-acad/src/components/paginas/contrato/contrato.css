@@ -1,4 +1,56 @@
 
+/* Estilos gerais responsivos */
+@media (max-width: 992px) {
+  .BB2formulario {
+    width: 95%;
+    height: auto;
+    margin-top: 1%;
+  }
+  
+  .areas {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .servicos, .planos, .pagamento {
+    width: 100%;
+  }
+  
+  .col-md-2, .col-md-10, .col-5, .col-4 {
+    width: 100% !important;
+  }
+}
+
+/* Mantém os tamanhos originais em telas maiores */
+@media (min-width: 992px) {
+  .col-md-2 {
+    width: 16.666667% !important;
+  }
+  .col-md-10 {
+    width: 83.333333% !important;
+  }
+  .col-5 {
+    width: 41.666667% !important;
+  }
+  .col-4 {
+    width: 33.333333% !important;
+  }
+}
+
+/* Ajustes específicos para manter a aparência */
+.form-control {
+  width: 100% !important;
+}
+
+select.form-control {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 16px 12px;
+  padding-right: 2.5rem !important;
+}
+/**/
 .BBfundo-branco{
     background-color: #E5E6E9;
     

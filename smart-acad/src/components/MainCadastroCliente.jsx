@@ -89,9 +89,9 @@ function MainCadastroCliente() {
         <>
 
             {/* <main className="BBcor col-md-9 ms-sm-auto col-lg-10 px-md-4"> */}
-           
 
-            <main className="BBfundo-branco col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+            <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 
                 <div className="BB1formulario">
                     <div className="BBconteudo-forms">
@@ -107,7 +107,7 @@ function MainCadastroCliente() {
                                 <label htmlFor="inputPassword4" className="form-label">Sobrenome:</label>
                                 <input value={sobrenome} onChange={(e) => setSobrenome(e.target.value)} type="text" className="form-control" id="sobrenome" name="sobrenome" />
                             </div>
-                            <div className="col-1">
+                            <div className="col-1 me-5">
                                 <label htmlFor="genero" className="form-label">Gênero:</label>
                                 <select
                                     value={genero}
@@ -132,7 +132,7 @@ function MainCadastroCliente() {
                                 <label htmlFor="cpf" className="form-label">CPF:</label>
                                 <input value={cpf} onChange={(e) => setCpf(e.target.value)} type="text" className="form-control" id="cpf" name="cpf" placeholder="" />
                             </div>
-                            <div className="col-md-6">
+                            <div className="col-md-5">
                                 <label htmlFor="email" className="form-label">Email:</label>
                                 <input value={email} onChange={(e) => setEmail(e.target.value)} type="text" className="form-control" id="email" name="email" />
                             </div>
@@ -165,7 +165,7 @@ function MainCadastroCliente() {
                                     className="form-control"
                                     id="observacao"
                                     name="observacao"
-                                    rows="4" 
+                                    rows="4"
                                 ></textarea>
                             </div>
                             <div className="col-12">
@@ -177,7 +177,7 @@ function MainCadastroCliente() {
                 </div>
 
             </main>
-            
+
         </>
     )
 }
