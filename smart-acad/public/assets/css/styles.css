@@ -157,3 +157,35 @@ textarea.form-control:focus {
   max-width: 400px;
   margin-bottom: 2rem;
 }
+
+.nav-custom {
+  background-color: #f0f2f5;
+  border-bottom: 1px solid #dee2e6;
+}
+.logo-brand {
+  background-color: #e9ecef;
+  border-radius: 20px;
+  padding: 0.4rem 1.2rem;
+  transition: all 0.3s ease;
+}
+.search-container {
+  width: 350px;
+  margin: 0 2rem;
+}
+.search-input {
+  border-right: none !important;
+  padding-right: 0.5rem;
+}
+.search-btn {
+  border-left: none !important;
+  padding-left: 0.8rem;
+  background-color: transparent !important;
+}
+.nav-custom .dropdown-menu {
+  border: 1px solid #dee2e6;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
+}
+.guiListarCor{
+ text-decoration: none;
+ color: #000000;
+}
