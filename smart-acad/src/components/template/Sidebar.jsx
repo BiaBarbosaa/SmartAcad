@@ -8,7 +8,7 @@ function Sidebar() {
  
   let editar = window.location.pathname; //retorna o caminho e o nome do arquivo da página atual
 
-  const areaCliente =
+   const areaCliente =
     pagina.pathname === "/cadastrar-cliente" ||
     pagina.pathname === "/listar-cliente" ||
     editar.match(/editar-cliente/)
@@ -21,7 +21,7 @@ function Sidebar() {
 
 
   return (
-    <div className="sidebar sidebar2 border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
+    <div className=" cortestee sidebar sidebar2 border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
       <div
         className="offcanvas-md offcanvas-end bg-body-tertiary"
         tabIndex="-1"
@@ -52,7 +52,6 @@ function Sidebar() {
             </li>
             <hr className="my-3" />
             
-
             <li className="mb-1">
               <button
                 className=" ms-1 btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
