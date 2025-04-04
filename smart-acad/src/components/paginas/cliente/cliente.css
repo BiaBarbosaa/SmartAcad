@@ -1,10 +1,8 @@
-
-
 .BBfundo-branco{
   background-color: #E5E6E9;
 
-  
-  
+ 
+ 
 }
 .BB1formulario{
   margin-top: 3%;
@@ -29,16 +27,16 @@
 .botao-editar{
 background-color: #8BBBC3;
 border: 1px solid #438892;
-transition: background-color 0.3s, border-color 0.3s; 
+transition: background-color 0.3s, border-color 0.3s;
 
 }
 .botao-editar:hover {
-background-color: #098da1; 
-border-color: #037c8f; 
+background-color: #098da1;
+border-color: #037c8f;
 }
 .botao-editar:active {
-background-color: #098da1 !important; 
-border-color: #037c8f !important; 
+background-color: #098da1 !important;
+border-color: #037c8f !important;
 }
 
 .botao-cancelar{
@@ -48,23 +46,54 @@ transition: background-color 0.3s, border-color 0.3s;
 
 }
 .botao-cancelar:hover {
-background-color: #F84C4C; 
-border-color: #F82C2C; 
+background-color: #F84C4C;
+border-color: #F82C2C;
 }
 .botao-cancelar:active {
-background-color: #F74C4C !important; 
-border-color: #F70000 !important; 
+background-color: #F74C4C !important;
+border-color: #F70000 !important;
 }
 
 .container-botao {
-display: flex; /* Coloca os botões lado a lado */
-align-items: center; /* Centraliza verticalmente os botões */
-gap: -500px; /* Adiciona um espaçamento entre os botões */
-/* background-color: #fa3999; */
-width: 17%;
-padding: 10px; /* Adiciona um padding para melhorar a aparência */
+  display: flex;
+  justify-content: flex-start; /* Alinha os botões à esquerda */
+  gap: 15px; /* Espaçamento entre os botões */
+  width: 100%;
+  padding: 10px 0;
 }
 
+/* Estilos para os botões */
+.botao-editar, .botao-cancelar {
+  flex: 0 1 auto; /* Não cresce, mas pode encolher */
+  width: auto; /* Largura automática baseada no conteúdo */
+  padding: 8px 20px; /* Espaçamento interno confortável */
+  white-space: nowrap; /* Impede quebra de texto */
+}
+
+/* Ajustes para telas pequenas */
+@media (max-width: 768px) {
+  .container-botao {
+    flex-direction: row; /* Mantém lado a lado */
+    gap: 10px; /* Reduz o espaçamento */
+  }
+  
+  .botao-editar, .botao-cancelar {
+    flex: 1; /* Ocupam espaço igual */
+    min-width: 120px; /* Largura mínima reduzida */
+  }
+}
+
+/* Ajustes para telas muito pequenas */
+@media (max-width: 480px) {
+  .container-botao {
+    flex-direction: column; /* Empilha verticalmente */
+    gap: 8px;
+  }
+  
+  .botao-editar, .botao-cancelar {
+    width: 100%; /* Ocupa toda a largura */
+  }
+}
 .container-btn {
 /* background-color: blue; */
 width: 20%;

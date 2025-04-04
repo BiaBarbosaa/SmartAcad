@@ -51,21 +51,23 @@ function MainCadastroContrato() {
 
        
 
-<main className="BBfundo-branco col-md-9 ms-sm-auto col-lg-10 px-md-4">
+<main className="col-md-9 ms-sm-auto col-lg-10 px-md-4 BBcontrato-main">
   <div className="BB2formulario">
     <div className="BBconteudo-forms">
       <form onSubmit={cadastrarContrato} className="row g-3">
         <h4>Cadastro de contrato</h4>
 
         {/* Linha 1 - Código e Nome */}
-        <div className="row align-items-center">
-          <div className="col-md-2">
-            <label htmlFor="cod" className="form-label">Código do cliente:</label>
-            <input value={cod} onChange={(e) => setCod(e.target.value)} type="text" className="form-control" id="cod" name="cod" />
-          </div>
-          <div className="col-md-10">
-            <label htmlFor="nome" className="form-label">Nome completo:</label>
-            <input value={nome} onChange={(e) => setNome(e.target.value)} type="text" className="form-control" id="nome" name="nome" />
+        <div className="BBarea-info">
+          <div className="row align-items-center">
+            <div className="col-md-2">
+              <label htmlFor="cod" className="form-label">Código do cliente:</label>
+              <input value={cod} onChange={(e) => setCod(e.target.value)} type="text" className="form-control" id="cod" name="cod" />
+            </div>
+            <div className="col-md-10">
+              <label htmlFor="nome" className="form-label">Nome completo:</label>
+              <input value={nome} onChange={(e) => setNome(e.target.value)} type="text" className="form-control" id="nome" name="nome" />
+            </div>
           </div>
         </div>
 
@@ -74,26 +76,35 @@ function MainCadastroContrato() {
           <div className="servicos">
             <h5>Serviços adicionais</h5>
             <div className="col-5">
-              <label htmlFor="servicos" className="form-label">Serviços:</label>
-              <select
-                value={servicos}
-                onChange={(e) => setServicos(e.target.value)}
-                className="form-control"
-                id="servicos"
-                name="servicos"
-              >
-                <option value="" disabled defaultValue>.</option>
-                <option value="1">Nutrição</option>
-                <option value="2">Personal</option>
-                {/* ... outros options ... */}
-              </select>
+              <div className="BBarea-sub-titulo">
+                <label htmlFor="servicos" className="form-label">Serviços:</label>
+              </div>
+              <div className="BBareas-input">
+                <select
+                  value={servicos}
+                  onChange={(e) => setServicos(e.target.value)}
+                  className="form-control"
+                  id="servicos"
+                  name="servicos"
+                >
+                  <option value="" disabled defaultValue></option>
+                  <option value="1">Nutrição</option>
+                  <option value="2">Personal</option>
+                  <option value="3">Musculação</option>
+                  <option value="4">Spinning</option>
+                  <option value="5">Zumba</option>
+                  <option value="6">Avaliação física</option>
+                </select>
+              </div>
             </div>
           </div>
 
           <div className="planos">
             <h5>Tipos de planos</h5>
             <div className="col-4">
-              <label htmlFor="planos" className="form-label">Planos:</label>
+              <div className="BBarea-sub-titulo">
+                <label htmlFor="planos" className="form-label">Planos:</label>
+              </div>
               <select
                 value={planos}
                 onChange={(e) => setPlanos(e.target.value)}
@@ -101,9 +112,10 @@ function MainCadastroContrato() {
                 id="planos"
                 name="planos"
               >
-                <option value="" disabled defaultValue>.</option>
+                <option value="" disabled defaultValue></option>
                 <option value="1">Mensal</option>
-                {/* ... outros options ... */}
+                <option value="2">Trimestral</option>
+                <option value="3">Anual</option>
               </select>
             </div>
           </div>
@@ -111,7 +123,9 @@ function MainCadastroContrato() {
           <div className="pagamento">
             <h5>Pagamento</h5>
             <div className="col-4">
-              <label htmlFor="pagamento" className="form-label">Forma de pagamento:</label>
+              <div className="BBarea-sub-titulo">
+                <label htmlFor="pagamento" className="form-label">Forma de pagamento:</label>
+              </div>
               <select
                 value={pagamento}
                 onChange={(e) => setPagamento(e.target.value)}
@@ -119,9 +133,10 @@ function MainCadastroContrato() {
                 id="pagamento"
                 name="pagamento"
               >
-                <option value="" disabled defaultValue>.</option>
+                <option value="" disabled defaultValue></option>
                 <option value="1">Dinheiro</option>
-                {/* ... outros options ... */}
+                <option value="2">Cartão</option>              
+                <option value="3">Pix</option>              
               </select>
             </div>
           </div>
@@ -136,6 +151,7 @@ function MainCadastroContrato() {
     </div>
   </div>
 </main>
+
 
         </>
     )

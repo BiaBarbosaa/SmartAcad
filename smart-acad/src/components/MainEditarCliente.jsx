@@ -131,13 +131,14 @@ function MainEditarCliente() {
 
     return (
         <>
-            <main className="fundo-branco col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            
+            <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 
-                <div className="formulario">
-                    <div className="conteudo-forms">
+                <div className="BB1formulario">
+                    <div className="BBconteudo-forms">
 
                         <form onSubmit={editarCliente} className="row g-3">
-                            <h4>Editar cadastro de clientes</h4>
+                            <h4>Cadastro de clientes</h4>
                             <h5>Dados pessoais</h5>
                             <div className="col-md-5">
                                 <label htmlFor="nome" className="form-label">Nome:</label>
@@ -147,7 +148,7 @@ function MainEditarCliente() {
                                 <label htmlFor="inputPassword4" className="form-label">Sobrenome:</label>
                                 <input value={sobrenome} onChange={(e) => setSobrenome(e.target.value)} type="text" className="form-control" id="sobrenome" name="sobrenome" />
                             </div>
-                            <div className="col-1">
+                            <div className="col-1 me-5">
                                 <label htmlFor="genero" className="form-label">Gênero:</label>
                                 <select
                                     value={genero}
@@ -156,6 +157,7 @@ function MainEditarCliente() {
                                     id="genero"
                                     name="genero"
                                 >
+                                  <option value="" disabled defaultValue></option>
                                     <option value="F">F</option>
                                     <option value="M">M</option>
                                 </select>
@@ -172,7 +174,7 @@ function MainEditarCliente() {
                                 <label htmlFor="cpf" className="form-label">CPF:</label>
                                 <input value={cpf} onChange={(e) => setCpf(e.target.value)} type="text" className="form-control" id="cpf" name="cpf" placeholder="" />
                             </div>
-                            <div className="col-md-6">
+                            <div className="col-md-5">
                                 <label htmlFor="email" className="form-label">Email:</label>
                                 <input value={email} onChange={(e) => setEmail(e.target.value)} type="text" className="form-control" id="email" name="email" />
                             </div>
@@ -209,16 +211,12 @@ function MainEditarCliente() {
                                 ></textarea>
                             </div>
                             <div className="container-botao">
-                                <div className="col-12">
-                                    <button type="submit" className="btn btn-primary botao-editar">
-                                        <i className="bi bi-box-arrow-up"></i> Editar cliente
-                                    </button>
-                                </div>
-                                <div className="col-12">
-                                    <button type="button" className="btn btn-primary botao-cancelar">
-                                        Cancelar
-                                    </button>
-                                </div>
+                                <button type="submit" className="btn btn-primary botao-editar">
+                                    <i className="bi bi-box-arrow-up"></i> Editar cliente
+                                </button>
+                                <button type="button" className="btn btn-primary botao-cancelar">
+                                    Cancelar
+                                </button>
                             </div>
 
                         </form>
