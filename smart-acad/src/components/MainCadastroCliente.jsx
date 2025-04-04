@@ -116,6 +116,7 @@ function MainCadastroCliente() {
                                     id="genero"
                                     name="genero"
                                 >
+                                  <option value="" disabled defaultValue></option>
                                     <option value="F">F</option>
                                     <option value="M">M</option>
                                 </select>

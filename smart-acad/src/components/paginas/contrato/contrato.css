@@ -1,143 +1,197 @@
-
-/* Estilos gerais responsivos */
-@media (max-width: 992px) {
-  .BB2formulario {
-    width: 95%;
-    height: auto;
-    margin-top: 1%;
-  }
-  
-  .areas {
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .servicos, .planos, .pagamento {
-    width: 100%;
-  }
-  
-  .col-md-2, .col-md-10, .col-5, .col-4 {
-    width: 100% !important;
-  }
+/* Centralizando o formulário dentro de main */
+.BBcontrato-main {
+  display: flex !important;
+  justify-content: center !important;  /* Centraliza horizontalmente */
+  align-items: center !important;      /* Centraliza verticalmente */
+  height: 100vh !important;            /* Garante que o main ocupe 100% da altura da tela */
+  padding: 0!important;               /* Remove qualquer padding default */
+  margin: 0!important;                /* Remove qualquer margin default */
 }
 
-/* Mantém os tamanhos originais em telas maiores */
-@media (min-width: 992px) {
-  .col-md-2 {
-    width: 16.666667% !important;
-  }
-  .col-md-10 {
-    width: 83.333333% !important;
-  }
-  .col-5 {
-    width: 41.666667% !important;
-  }
-  .col-4 {
-    width: 33.333333% !important;
-  }
+/* Estilos gerais para o formulário */
+.BB2formulario {
+  width: 100%;
+  height: auto;
+  background-color: #f5f3f5;
+  padding: 30px;
+  border-radius: 30px;
+  border: 1px solid #868A9D;
+  display: flex;
+  flex-direction: column; /* Alinha os itens dentro do formulário na vertical */
+  margin-bottom: 20px;
+  margin-left: 25px;
+  margin-right: 25px;
 }
 
-/* Ajustes específicos para manter a aparência */
-.form-control {
+.BBconteudo-forms {
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.areas {
+  display: flex;
+  flex-wrap: wrap; /* Permite que as áreas se reorganizem quando necessário */
+  justify-content: space-between;
+  gap: 20px; /* Espaço entre os itens */
+  margin-top: 40px;
+}
+
+.servicos, .planos, .pagamento {
+  width: 100%; /* Faz os itens ocuparem toda a largura em telas pequenas */
+  max-width: 300px; /* Limita a largura máxima */
+}
+
+.col-md-2, .col-md-10, .col-5, .col-4 {
   width: 100% !important;
 }
 
-select.form-control {
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
-  background-repeat: no-repeat;
-  background-position: right 0.75rem center;
-  background-size: 16px 12px;
-  padding-right: 2.5rem !important;
+/* Garantir que Código do Cliente e Nome Completo não se ajustem */
+.col-md-2 {
+  width: 16.666667% !important;
 }
-/**/
-.BBfundo-branco{
-    background-color: #E5E6E9;
-    
-  }
-  .BB2formulario{
-    width: 80%;
-    margin-top: 2%;
-    background-color: #f5f3f5;
-    height: 70%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 30px;
-    border: 1px solid #868A9D;
-  
-  }
-  .BBconteudo-forms{
-    padding: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.areas{
-    /* background-color: #712cf9; */
-    display: flex; 
-    justify-content: space-between; 
-    }
-    .servicos{
-    /* background-color: #F98E8E; */
-    width: 40%;
-    }
-    .planos{
-    /* background-color: chartreuse; */
-    width: 40%;
-    
-    }
-    .pagamento{
-    /* background-color: aqua; */
-    width: 40%;
-    
-    }
-    .form-label {
-    display: inline;
-    white-space: nowrap;
-    }
 
-    .botao-editar{
-      background-color: #8BBBC3;
-      border: 1px solid #438892;
-      transition: background-color 0.3s, border-color 0.3s; 
-    
-    }
-    .botao-editar:hover {
-      background-color: #098da1; 
-      border-color: #037c8f; 
-    }
-    .botao-editar:active {
-      background-color: #098da1 !important; 
-      border-color: #037c8f !important; 
-    }
-    
-    .botao-cancelar{
-      background-color: #F98E8E;
-      border: 1px solid #F84C4C;
-      transition: background-color 0.3s, border-color 0.3s;
-    
-    }
-    .botao-cancelar:hover {
-      background-color: #F84C4C; 
-      border-color: #F82C2C; 
-    }
-    .botao-cancelar:active {
-      background-color: #F74C4C !important; 
-      border-color: #F70000 !important; 
-    }
-    
-    .container-botao {
-      display: flex; /* Coloca os botões lado a lado */
-      align-items: center; /* Centraliza verticalmente os botões */
-      gap: -500px; /* Adiciona um espaçamento entre os botões */
-      /* background-color: #fa3999; */
-      width: 17%;
-      padding: 10px; /* Adiciona um padding para melhorar a aparência */
-    }
-    
-    .container-btn {
-      /* background-color: blue; */
-      width: 15%;
-    }
-    
+.col-md-10 {
+  width: 83.333333% !important;
+}
+
+.BBarea-info {
+  margin-top: 35px;
+}
+
+.BBarea-sub-titulo {
+  margin-top: 15px;
+  margin-inline-start: 12px;
+  margin-bottom: 15px;
+}
+
+.BBareas-input {
+  margin-bottom: 25px;
+}
+
+/* Ajustes específicos para dispositivos menores (até 992px) */
+@media (max-width: 992px) {
+  .BB2formulario {
+    width: 95%;
+    margin-top: 2%;
+  }
+
+  .areas {
+    flex-direction: column; /* Faz os itens ficarem em coluna */
+    gap: 20px;
+  }
+
+  .servicos, .planos, .pagamento {
+    width: 100%;
+  }
+ 
+  /* Ajuste da largura para as colunas internas */
+  .col-md-2, .col-md-10, .col-5, .col-4 {
+    width: 100% !important;
+  }
+
+  .BBarea-info {
+    margin-top: 20px;
+  }
+
+  .BBareas-input {
+    margin-bottom: 15px;
+  }
+}
+
+/* Ajustes para telas muito pequenas */
+@media (max-width: 576px) {
+  .BB2formulario {
+    padding: 20px;
+  }
+
+  .servicos, .planos, .pagamento {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .BBarea-sub-titulo {
+    margin-top: 10px;
+  }
+
+  .form-control {
+    font-size: 14px; /* Ajuste do tamanho da fonte para dispositivos móveis */
+  }
+}
+
+/* Para adicionar uma seta aos campos select */
+select.form-control {
+  appearance: none;  /* Remove a aparência padrão do select */
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");  /* Seta para o select */
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center; /* Posição da seta */
+  background-size: 16px 12px; /* Tamanho da seta */
+  padding-right: 2.5rem !important; /* Espaço para a seta no campo */
+}
+
+/* Para adicionar uma seta ao campo input (para texto) */
+input.form-control {
+  padding-right: 2.5rem; /* Espaço para a seta no campo */
+}
+
+/* Adicionando uma seta para o input com tipo select */
+input[type="text"] {
+  position: relative;
+}
+
+input[type="text"]::after {
+  content: '\2193'; /* Código Unicode da seta para baixo */
+  font-size: 18px;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%); /* Centraliza verticalmente */
+  color: #343a40; /* Cor da seta */
+  pointer-events: none; /* Faz a seta apenas decorativa */
+}
+
+input[type="text"]:focus {
+  outline: none; /* Remove o outline ao focar no input */
+}
+.container-botao {
+  display: flex;
+  justify-content: flex-start; /* Alinha os botões à esquerda */
+  gap: 15px; /* Espaçamento entre os botões */
+  width: 100%;
+  padding: 10px 0;
+}
+
+/* Estilos para os botões */
+.botao-editar, .botao-cancelar {
+  flex: 0 1 auto; /* Não cresce, mas pode encolher */
+  width: auto; /* Largura automática baseada no conteúdo */
+  padding: 8px 20px; /* Espaçamento interno confortável */
+  white-space: nowrap; /* Impede quebra de texto */
+}
+
+/* Ajustes para telas pequenas */
+@media (max-width: 768px) {
+  .container-botao {
+    flex-direction: row; /* Mantém lado a lado */
+    gap: 10px; /* Reduz o espaçamento */
+  }
+  
+  .botao-editar, .botao-cancelar {
+    flex: 1; /* Ocupam espaço igual */
+    min-width: 120px; /* Largura mínima reduzida */
+  }
+}
+
+/* Ajustes para telas muito pequenas */
+@media (max-width: 480px) {
+  .container-botao {
+    flex-direction: column; /* Empilha verticalmente */
+    gap: 8px;
+  }
+  
+  .botao-editar, .botao-cancelar {
+    width: 100%; /* Ocupa toda a largura */
+  }
+}
