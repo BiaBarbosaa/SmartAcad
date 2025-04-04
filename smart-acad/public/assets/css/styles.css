@@ -139,7 +139,9 @@ textarea.form-control:focus {
 }
 
 .error-content {
+  align-items: center;
   text-align: center;
+  justify-content: center;
 }
 
 .error-content h1 {
@@ -150,11 +152,6 @@ textarea.form-control:focus {
 
 .error-content p {
   font-size: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-.lottie-animation {
-  max-width: 400px;
   margin-bottom: 2rem;
 }
 
