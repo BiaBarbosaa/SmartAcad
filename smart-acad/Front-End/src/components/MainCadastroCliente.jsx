@@ -109,22 +109,22 @@ function MainCadastroCliente() {
                                 <label htmlFor="inputPassword4" className="form-label">Sobrenome:</label>
                                 <input value={sobrenome} onChange={(e) => setSobrenome(e.target.value)} type="text" className="form-control" id="sobrenome" name="sobrenome" />
                             </div>
-                            <div className="col-1 me-3">  {/* Alterado de me-5 para me-3 */}
+                            <div className="col-1 me-4">
                                 <label htmlFor="genero" className="form-label">Gênero:</label>
                                 <select
-                                    value={genero}
+                                    value={genero || ''} // Garante que não será undefined
                                     onChange={(e) => setGenero(e.target.value)}
                                     className="form-control"
                                     id="genero"
                                     name="genero"
                                 >
-                                    <option value="" disabled defaultValue></option>
+                                    <option value="" disabled></option>
                                     <option value="F">F</option>
                                     <option value="M">M</option>
                                 </select>
                             </div>
 
-                            <div className="col-1 me-2">  {/* Adicionado me-2 */}
+                            <div className="col-1 me-1">  {/* Adicionado me-2 */}
                                 <label htmlFor="idade" className="form-label">Idade:</label>
                                 <input value={idade} onChange={(e) => setIdade(e.target.value)} type="text" className="form-control" id="idade" name="idade" />
                             </div>
