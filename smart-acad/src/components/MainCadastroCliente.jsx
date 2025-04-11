@@ -92,106 +92,94 @@ function MainCadastroCliente() {
 
 
             <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-    <div className="BB1formulario">
-        <div className="BBconteudo-forms">
-            <form onSubmit={cadastrarCliente} className="row g-3">
-                <h4>Cadastro de clientes</h4>
-                <h5>Dados pessoais</h5>
-                
-                <div className="col-md-5">
-                    <label htmlFor="nome" className="form-label">Nome:</label>
-                    <input value={nome} onChange={(e) => setNome(e.target.value)} type="text" className="form-control" id="nome" name="nome" />
+
+                <div className="BB1formulario">
+                    <div className="BBconteudo-forms">
+
+                        <form onSubmit={cadastrarCliente} className="row g-3">
+                            <h4>Cadastro de clientes</h4>
+                            <h5>Dados pessoais</h5>
+                            <div className="col-md-4">
+                                <label htmlFor="nome" className="form-label">Nome:</label>
+                                <input value={nome} onChange={(e) => setNome(e.target.value)} type="text" className="form-control" id="nome" name="nome" />
+                            </div>
+                            <div className="col-md-5">
+                                <label htmlFor="inputPassword4" className="form-label">Sobrenome:</label>
+                                <input value={sobrenome} onChange={(e) => setSobrenome(e.target.value)} type="text" className="form-control" id="sobrenome" name="sobrenome" />
+                            </div>
+                            <div className="col-1 me-3">  {/* Alterado de me-5 para me-3 */}
+                                <label htmlFor="genero" className="form-label">Gênero:</label>
+                                <select
+                                    value={genero}
+                                    onChange={(e) => setGenero(e.target.value)}
+                                    className="form-control"
+                                    id="genero"
+                                    name="genero"
+                                >
+                                    <option value="" disabled defaultValue></option>
+                                    <option value="F">F</option>
+                                    <option value="M">M</option>
+                                </select>
+                            </div>
+
+                            <div className="col-1 me-2">  {/* Adicionado me-2 */}
+                                <label htmlFor="idade" className="form-label">Idade:</label>
+                                <input value={idade} onChange={(e) => setIdade(e.target.value)} type="text" className="form-control" id="idade" name="idade" />
+                            </div>
+                            <div className="col-md-3">
+                                <label htmlFor="inputCity" className="form-label">Telefone:</label>
+                                <input value={telefone} onChange={(e) => setTelefone(e.target.value)} type="text" className="form-control" id="inputCity" />
+                            </div>
+                            <div className="col-3">
+                                <label htmlFor="cpf" className="form-label">CPF:</label>
+                                <input value={cpf} onChange={(e) => setCpf(e.target.value)} type="text" className="form-control" id="cpf" name="cpf" placeholder="" />
+                            </div>
+                            <div className="col-md-6">
+                                <label htmlFor="email" className="form-label">Email:</label>
+                                <input value={email} onChange={(e) => setEmail(e.target.value)} type="text" className="form-control" id="email" name="email" />
+                            </div>
+                            <h5>Endereço</h5>
+                            <div className="col-md-2">
+                                <label htmlFor="cep" className="form-label">CEP:</label>
+                                <input value={cep} onBlur={(e) => chamarCep(e.target.value)} onChange={(e) => setCep(e.target.value)} type="number" className="form-control" id="cep" name="cep" maxLength={8} />
+                            </div>
+                            <div className="col-md-6">
+                                <label htmlFor="logradouro" className="form-label">Endereço:</label>
+                                <input value={logradouro} onChange={(e) => setLogradouro(e.target.value)} type="text" className="form-control" id="logradouro" name="logradouro" />
+                            </div>
+                            <div className="col-md-4">
+                                <label htmlFor="complemento" className="form-label">Complemento:</label>
+                                <input value={complemento} onChange={(e) => setComplemento(e.target.value)} type="text" className="form-control" id="complemento" name="complemento" />
+                            </div>
+                            <div className="col-md-3">
+                                <label htmlFor="cidade" className="form-label">Cidade:</label>
+                                <input value={cidade} onChange={(e) => setCidade(e.target.value)} type="text" className="form-control" id="cidade" name="cidade" />
+                            </div>
+                            <div className="col-md-1">
+                                <label htmlFor="uf" className="form-label">UF:</label>
+                                <input value={uf} onChange={(e) => setUf(e.target.value)} type="text" className="form-control" id="uf" name="uf" />
+                            </div>
+                            <div className="col-md-12">
+                                <label htmlFor="observacao" className="form-label">Observação:</label>
+                                <textarea
+                                    value={observacao}
+                                    onChange={(e) => setObservacao(e.target.value)}
+                                    className="form-control"
+                                    id="observacao"
+                                    name="observacao"
+                                    rows="4"
+                                ></textarea>
+                            </div>
+                            <div className="col-12">
+                                <button type="submit" className="btn btn-primary botao-cadastrar">
+                                    <i className="bi bi-box-arrow-up "></i> Cadastrar cliente</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                
-                <div className="col-md-5">
-                    <label htmlFor="inputPassword4" className="form-label">Sobrenome:</label>
-                    <input value={sobrenome} onChange={(e) => setSobrenome(e.target.value)} type="text" className="form-control" id="sobrenome" name="sobrenome" />
-                </div>
-                
-                {/* Ajuste para os campos de gênero e idade */}
-                <div className="col-md-2 col-6">
-                    <label htmlFor="genero" className="form-label">Gênero:</label>
-                    <select
-                        value={genero}
-                        onChange={(e) => setGenero(e.target.value)}
-                        className="form-control"
-                        id="genero"
-                        name="genero"
-                    >
-                        <option value="" disabled defaultValue></option>
-                        <option value="F">F</option>
-                        <option value="M">M</option>
-                    </select>
-                </div>
-                
-                <div className="col-md-2 col-6">
-                    <label htmlFor="idade" className="form-label">Idade:</label>
-                    <input value={idade} onChange={(e) => setIdade(e.target.value)} type="text" className="form-control" id="idade" name="idade" />
-                </div>
-                
-                {/* Ajuste para o campo de telefone */}
-                <div className="col-md-3 col-sm-6">
-                    <label htmlFor="telefone" className="form-label">Telefone:</label>
-                    <input value={telefone} onChange={(e) => setTelefone(e.target.value)} type="text" className="form-control" id="telefone" />
-                </div>
-                
-                <div className="col-md-3 col-sm-6">
-                    <label htmlFor="cpf" className="form-label">CPF:</label>
-                    <input value={cpf} onChange={(e) => setCpf(e.target.value)} type="text" className="form-control" id="cpf" name="cpf" />
-                </div>
-                
-                <div className="col-md-5">
-                    <label htmlFor="email" className="form-label">Email:</label>
-                    <input value={email} onChange={(e) => setEmail(e.target.value)} type="text" className="form-control" id="email" name="email" />
-                </div>
-                
-                <h5>Endereço</h5>
-                <div className="col-md-2">
-                    <label htmlFor="cep" className="form-label">CEP:</label>
-                    <input value={cep} onBlur={(e) => chamarCep(e.target.value)} onChange={(e) => setCep(e.target.value)} type="number" className="form-control" id="cep" name="cep" maxLength={8} />
-                </div>
-                
-                <div className="col-md-6">
-                    <label htmlFor="logradouro" className="form-label">Endereço:</label>
-                    <input value={logradouro} onChange={(e) => setLogradouro(e.target.value)} type="text" className="form-control" id="logradouro" name="logradouro" />
-                </div>
-                
-                <div className="col-md-4">
-                    <label htmlFor="complemento" className="form-label">Complemento:</label>
-                    <input value={complemento} onChange={(e) => setComplemento(e.target.value)} type="text" className="form-control" id="complemento" name="complemento" />
-                </div>
-                
-                <div className="col-md-3">
-                    <label htmlFor="cidade" className="form-label">Cidade:</label>
-                    <input value={cidade} onChange={(e) => setCidade(e.target.value)} type="text" className="form-control" id="cidade" name="cidade" />
-                </div>
-                
-                <div className="col-md-1">
-                    <label htmlFor="uf" className="form-label">UF:</label>
-                    <input value={uf} onChange={(e) => setUf(e.target.value)} type="text" className="form-control" id="uf" name="uf" />
-                </div>
-                
-                <div className="col-md-12">
-                    <label htmlFor="observacao" className="form-label">Observação:</label>
-                    <textarea
-                        value={observacao}
-                        onChange={(e) => setObservacao(e.target.value)}
-                        className="form-control"
-                        id="observacao"
-                        name="observacao"
-                        rows="4"
-                    ></textarea>
-                </div>
-                
-                <div className="col-12">
-                    <button type="submit" className="btn btn-primary botao-cadastrar">
-                        <i className="bi bi-box-arrow-up "></i> Cadastrar cliente
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-</main>
+
+            </main>
+
         </>
     )
 }
