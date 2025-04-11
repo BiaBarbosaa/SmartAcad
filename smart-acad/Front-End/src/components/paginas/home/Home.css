@@ -66,3 +66,11 @@
       min-width: 100%;
   }
 }
+@media (min-width: 768px) {
+  .BBconteudo-forms .col-1:nth-child(3) { /* Gênero */
+    padding-right: 10px;
+  }
+  .BBconteudo-forms .col-1:nth-child(4) { /* Idade */
+    padding-right: 15px;
+  }
+}
