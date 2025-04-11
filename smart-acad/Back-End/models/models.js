@@ -1,5 +1,6 @@
 //Arquivo para realizar as regras do negocio, comunicação com o banco de dados
 
+const cliente = require('../config/db');
 const conexao = require('../config/db') //impot da conexao com o banco
 
 const Model = {
@@ -9,11 +10,18 @@ const Model = {
         return result;
     },
 
-    cadastrarcolaborador: async (id, nome, rua, cidade, estado, idade, setor) => {
-        const result = await conexao.query("INSERT INTO livro values(?,?,?,?,?,?,?)",
-            [id, nome, rua, cidade, estado, idade, setor])
-            .catch(erro => console.log(erro));
-        return result;
+    cadastrarcolaborador: async (nome, sobrenome, telefone, email, senha, dataMatricula, genero, cpf, cep, endereco, bairro, observacao, cliente_id) => {
+        try{
+            const result = await conexao.query("INSERT INTO cliente values(?,?,?,?,?,?,?,?,?,?,?,?)",
+                [nome, sobrenome, telefone, email, senha, dataMatricula, genero, cpf, cep, endereco, bairro, observacao, cliente_id ])
+            return result;
+        }
+        catch(error){
+            console.log(error)
+            throw new Error (`Erro ao criar o cliente ${error.message}`)
+
+        }
+       
 
     },
 

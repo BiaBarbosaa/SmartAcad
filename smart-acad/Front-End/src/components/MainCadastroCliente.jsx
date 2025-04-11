@@ -44,13 +44,15 @@ function MainCadastroCliente() {
         cliente = JSON.stringify(cliente);
         // enviamos de forma assíncrona para o backend
         try {
-            let cadastro = await fetch('http://localhost:8081/cadastroAluno', {
+            let cadastro = await fetch('http://localhost:3001/cadastroCliente', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: cliente
             })
+
+            console.log(cadastro)
             if (cadastro.sucesso) {
                 alert(`cliente cadastrado com sucesso`);
             }
