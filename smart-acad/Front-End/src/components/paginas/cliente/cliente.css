@@ -24,90 +24,31 @@
   justify-content: center;
 }
 
-.botao-editar{
-background-color: #8BBBC3;
-border: 1px solid #438892;
-transition: background-color 0.3s, border-color 0.3s;
-
-}
-.botao-editar:hover {
-background-color: #098da1;
-border-color: #037c8f;
-}
-.botao-editar:active {
-background-color: #098da1 !important;
-border-color: #037c8f !important;
-}
-
-.botao-cancelar{
-background-color: #F98E8E;
-border: 1px solid #F84C4C;
-transition: background-color 0.3s, border-color 0.3s;
-
-}
-.botao-cancelar:hover {
-background-color: #F84C4C;
-border-color: #F82C2C;
-}
-.botao-cancelar:active {
-background-color: #F74C4C !important;
-border-color: #F70000 !important;
-}
-
-.container-botao {
+/* ==================== */
+/* ESTRUTURA PRINCIPAL */
+/* ==================== */
+.BBconteudo-forms {
+  padding: 30px;
   display: flex;
-  justify-content: flex-start; /* Alinha os botões à esquerda */
-  gap: 15px; /* Espaçamento entre os botões */
-  width: 100%;
-  padding: 10px 0;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Estilos para os botões */
-.botao-editar, .botao-cancelar {
-  flex: 0 1 auto; /* Não cresce, mas pode encolher */
-  width: auto; /* Largura automática baseada no conteúdo */
-  padding: 8px 20px; /* Espaçamento interno confortável */
-  white-space: nowrap; /* Impede quebra de texto */
-}
-
-/* Ajustes para telas pequenas */
-@media (max-width: 768px) {
-  .container-botao {
-    flex-direction: row; /* Mantém lado a lado */
-    gap: 10px; /* Reduz o espaçamento */
+@media (max-width: 767px) {
+  .BBconteudo-forms {
+    padding-left: 15px;
+    padding-right: 15px;
   }
   
-  .botao-editar, .botao-cancelar {
-    flex: 1; /* Ocupam espaço igual */
-    min-width: 120px; /* Largura mínima reduzida */
+  form.row.g-3 {
+    margin-left: -12px;
+    margin-right: -12px;
   }
 }
 
-/* Ajustes para telas muito pequenas */
-@media (max-width: 480px) {
-  .container-botao {
-    flex-direction: column; /* Empilha verticalmente */
-    gap: 8px;
-  }
-  
-  .botao-editar, .botao-cancelar {
-    width: 100%; /* Ocupa toda a largura */
-  }
-}
-.container-btn {
-/* background-color: blue; */
-width: 20%;
-}
-
-.table th {
-
-background-color: #FA5556 !important; /* Caso queira garantir a cor nos <th> */
-}
-.tabela{
-width: 100%;
-background-color: #133bb1;
-}
-
+/* ==================== */
+/* FORMULÁRIO RESPONSIVO */
+/* ==================== */
 @media (min-width: 768px) {
   .BBconteudo-forms .col-1:nth-child(3) { /* Gênero */
     padding-right: 10px;
@@ -116,13 +57,153 @@ background-color: #133bb1;
     padding-right: 15px;
   }
 }
+
 @media (max-width: 767px) {
   .BBconteudo-forms select.form-control {
-      min-width: 100% !important;
-      padding: 0.375rem 1.75rem 0.375rem 0.75rem;
+    min-width: 100% !important;
+    padding: 0.375rem 1.75rem 0.375rem 0.75rem;
   }
   
   .BBconteudo-forms .col-1 {
-      min-width: 80px;
+    min-width: 80px;
   }
+}
+
+/* ==================== */
+/* BOTÕES PRINCIPAIS */
+/* ==================== */
+.container-botao {
+  display: flex;
+  justify-content: flex-start;
+  gap: 15px;
+  padding-left: 12px;
+  max-width: 100%;
+  margin-top: 16px;
+}
+
+@media (min-width: 768px) {
+  .container-botao {
+    padding-left: calc(12px + 0.5rem);
+  }
+}
+
+/* Botão Editar */
+.botao-editar {
+  background-color: #8BBBC3;
+  border: 1px solid #438892;
+  transition: background-color 0.3s, border-color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 20px;
+  position: relative;
+}
+.botao-editar i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 1em;
+  width: 1em;
+}
+.botao-editar i.bi {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2rem;
+}
+/* Ajuste fino do ícone */
+.botao-editar i.bi-box-arrow-up {
+  all: unset !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+}
+
+.botao-editar:hover {
+  background-color: #098da1;
+  border-color: #037c8f;
+}
+
+.botao-editar:active {
+  background-color: #098da1 !important;
+  border-color: #037c8f !important;
+}
+
+/* Botão Cancelar */
+.botao-cancelar {
+  background-color: #F98E8E;
+  border: 1px solid #F84C4C;
+  transition: background-color 0.3s, border-color 0.3s;
+  padding: 8px 20px;
+  white-space: nowrap;
+}
+
+.botao-cancelar:hover {
+  background-color: #F84C4C;
+  border-color: #F82C2C;
+}
+
+.botao-cancelar:active {
+  background-color: #F74C4C !important;
+  border-color: #F70000 !important;
+}
+
+/* ==================== */
+/* RESPONSIVIDADE BOTÕES */
+/* ==================== */
+@media (max-width: 768px) {
+  .container-botao {
+    flex-direction: row;
+    gap: 10px;
+  }
+  
+  .botao-editar,
+  .botao-cancelar {
+    flex: 1;
+    min-width: 120px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .container-botao {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+/* Ajuste fino para campos Gênero e Idade */
+@media (min-width: 768px) {
+  .BBconteudo-forms .col-1:nth-child(3) { /* Gênero */
+    padding-right: 8px;  /* Reduzido de 10px */
+    margin-right: 4px;   /* Adicionado */
+  }
+  .BBconteudo-forms .col-1:nth-child(4) { /* Idade */
+    padding-right: 8px;  /* Reduzido de 15px */
+  }
+}
+
+/* Para mobile */
+@media (max-width: 767px) {
+  .BBconteudo-forms .col-1 {
+    min-width: 70px;     /* Reduzido de 80px */
+    margin-right: 4px;
+  }
+}
+/* ==================== */
+/* COMPONENTES ADICIONAIS */
+/* ==================== */
+.container-btn {
+  width: 20%;
+}
+
+.table th {
+  background-color: #FA5556 !important;
+}
+
+.tabela {
+  width: 100%;
+  background-color: #133bb1;
 }
