@@ -1,35 +1,48 @@
-//Arquivo para realizar as regras do negocio, comunicação com o banco de dados
+const conexao = require('../config/db');
+const executeQuery = require('../database/query')
+const bcrypt = require('bcrypt')
 
-const cliente = require('../config/db');
-const conexao = require('../config/db') //impot da conexao com o banco
+const Colaboradores = {
 
-const Model = {
-    getColaboradorById: async (id) => { //fazendo uma consulta
-        const result = await conexao.query("SELECT * FROM livro WHERE id=?", [id]) //armazenando a resultado
-            .catch(erro => console.log(erro));
-        return result;
-    },
-
-    cadastrarcolaborador: async (nome, sobrenome, telefone, email, senha, dataMatricula, genero, cpf, cep, endereco, bairro, observacao, cliente_id) => {
+    registrarUsuarios: async (nome, sobrenome, regra, email, senha) => {
         try{
-            const result = await conexao.query("INSERT INTO cliente values(?,?,?,?,?,?,?,?,?,?,?,?)",
-                [nome, sobrenome, telefone, email, senha, dataMatricula, genero, cpf, cep, endereco, bairro, observacao, cliente_id ])
-            return result;
+            const password = await bcrypt.hash(senha, 10)
+            return await executeQuery(
+                'INSERT INTO usuarios (nome, sobrenome, regra, email, senha) VALUES(?,?,?,?,?)',
+                [nome, sobrenome, regra, email, password]
+            )
         }
         catch(error){
-            console.log(error)
-            throw new Error (`Erro ao criar o cliente ${error.message}`)
-
+            throw error;
+            
         }
-       
-
     },
 
-    deleteID: async (id) => { 
-        const [result] = await conexao.query("DELETE FROM livro WHERE id=?", [id]) 
-        .catch(erro => console.log(erro));
-        return result;
-    },
-}
+    login: async(email,senha)=>{
+        try{
+            const consulta = await Colaboradores.getEmail(email);
 
-module.exports = Model;
+            if(consulta.length > 0){
+                //comparar senha
+                //senha = senha do login que vem pelo post
+                //consulta[0].senha = ao objeto do banco
+                const match = await bcrypt.compare(senha, consulta[0].senha)
+
+                if(match){
+                    return consulta
+                }
+                return null;
+            }
+            return null;
+        }
+        catch(error){
+            throw error;
+        }
+    },
+
+    getEmail: async(email)=>{
+       return await executeQuery('SELECT id, email, senha FROM usuarios WHERE email=?', [email])
+    }
+};
+
+module.exports = Colaboradores;

@@ -59,10 +59,9 @@
   .top-charts-wrapper {
       gap: 50px;
   }
+
+  .top-charts-wrapper .chart-card {
+    min-width: 100%;
+}
 }
 
-@media (max-width: 767px) {
-  .top-charts-wrapper .chart-card {
-      min-width: 100%;
-  }
-}

@@ -1,68 +1,54 @@
 const clienteModel = require('../models/models');
 
 const clienteController = {
-    //busca por id
-    //getbyid aciona o getColaboradorById
-    getById: async(req,res) =>{
-        try{
-            const sql = await clienteModel.getColaboradorById(req.params.id) //se ele encontrou o registro, vai ficar armazenado aqui
 
-            if(sql.length > 0){
-                res.status(200).json(sql[0])
+
+    cadastrarUsuarios: async (req, res) => {
+        const { nome, sobrenome, setor, email, senha, regra } = req.body;
+
+        try {
+            const emailExistente = await clienteModel.getEmail(email);
+            if (emailExistente.length > 0) {
+                return res.status(400).json({ msg: "Este email já está cadastrado" });
             }
             else{
-                res.status(404).json({msg:"Não existe registro no banco de dados"})
+                 await clienteModel.registrarUsuarios(
+                    nome,
+                    sobrenome,
+                    setor,
+                    email,
+                    senha,
+                    regra
+                 
+                );
+                return res.status(201).json({msg: "Funcionário cadastrado com sucesso!"});
             }
-        }
-        catch(erro){
-        }
-    },
-
-    createNewCustomer: async(req,res) => {
-
-        const senha = "123";
-        const bairro = "williams"
-        const dataMatricula = "2025-04-11";
-        const cliente_id = 1
-        const {nome, sobrenome, genero, telefone, cpf, email, cep, logradouro, observacao} = req.body
-        const endereco = logradouro;
-    
-        console.log(endereco);
-      
-        console.log(req.body)
-
-        try{
-            const sql = await clienteModel.cadastrarcolaborador(nome, sobrenome, telefone, email, senha, dataMatricula, genero, cpf, cep, endereco, bairro, observacao,cliente_id) 
-            if(sql.length > 0){
-                res.status(201).json({msg:"Registro criado com sucesso!!!"})
-            }
-        }
-        catch(erro){
-            console.log(erro)
-            res.status(500).json({msg:"Erro ao servidor"})
-        }
-    },
-
-    deleteById: async(req,res) => {
-        try{
-            const consulta = await clienteModel.getColaboradorById(req.params.id)
-
-            if(consulta.length > 0){
+        } catch (error) {
+            res.status(500).json({mensagem: error.message});
          
-                await clienteModel.deleteID(req.params.id)
-                res.status(200).json({msg:"Deletado com sucesso!!"})
-              
+        }
+    },
+
+    LoginUsuario: async (req, res) => {
+        const { email, senha } = req.body; //um post que vem do body
+
+
+        try {
+            const resultado = await clienteModel.login(email, senha)
+
+            if (!resultado) {
+                return res.status(401).json({ msg: "Email ou senha incorretos" })
             }
-            else{
-                res.status(404).json({msg:"ID não existe no banco de dados"})
+            else {
+                res.status(201).json({ msg: "Login feito com sucesso!" })
             }
         }
-        catch(erro){
-            res.status(500).json({msg:"Erro ao servidor"})
-            console.log(erro)
+        catch(error) {
+            res.status(500).json({ msg: "Erro no servidor" })
+        
         }
     }
-        
-    
-}
+
+};
+
 module.exports = clienteController;
