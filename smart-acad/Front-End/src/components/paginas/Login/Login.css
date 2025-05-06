@@ -1,67 +1,105 @@
-/* Definição geral do layout */
-.container {
-    display: flex;
-    height: 100vh;
-    font-family: "Poppins", sans-serif;
-  }
-  
-  /* Estilização da área do formulário */
-  .form-container {
-    width: 40%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
-   
-  }
-  
-  .image-container{
-    background-image: url("../../../../public/assets/img/academia.webp");
-    background-repeat: no-repeat;
-    background-size:auto;
-    height: 100vh;
-    width: 60%;
-  }
-  
-  .form {
-    width: 100%;
-    max-width: 350px;
-  }
-  
-  /* Título do formulário */
-  .title {
-    text-align: left;
-    color: #333;
-  }
-  
-  /* Campos de entrada (input) */
-  .input {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  /* Botão */
-  .button {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #ff4d4d;
-    color: white;
-    cursor: pointer;
-    font-weight: bold;
-  }
-  
-  /* Link de navegação */
-  .link {
-    display: block;
-    margin-top: 10px;
-    text-align: center;
-    color: #000000;
-    text-decoration: none;
-  }
+.container-fluid-2 {
+  display: flex;
+  font-family: 'Poppins', sans-serif;
+}
+
+.form-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  padding: 2rem;
+}
+
+.image-container {
+  flex: 1;
+  background-image: url("../../../../public/assets/img/academia.webp");
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100vh;
+}
+
+.form {
+  width: 100%;
+  max-width: 400px;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #1a1a1a;
+}
+
+.subtitle {
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.input-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-weight: 500;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  outline: none;
+  border-color: #ff4d4d;
+}
+
+.button {
+  width: 100%;
+  padding: 12px;
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.button:hover {
+  opacity: 0.9;
+}
+
+.register-link {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: #666;
+}
+
+.register-link a {
+  color: #ff4d4d;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.error-message {
+  color: #ff4444;
+  background: #ffecec;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+

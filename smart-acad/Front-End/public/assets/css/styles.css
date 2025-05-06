@@ -76,11 +76,11 @@
   }
 
   .imagem-sidebar{
-    /*background-image: url("../../assets/img/imagem-sidebar.png");
+    background-image: url("../../assets/img/imagem-sidebar.png");
     background-repeat: no-repeat;
-    background-size: cover; *//*toda sidebar*/
-    /*height: 100vh;*/
-    background-color: #cecaca;
+    background-size: cover; /*toda sidebar*/
+    height: 100vh;
+ 
 
   }
 
@@ -204,4 +204,9 @@ textarea.form-control:focus {
 .guiListarCor{
  text-decoration: none;
  color: #000000;
+}
+
+.a {
+text-decoration: none !important;
+background-color: transparent !important;
 }

@@ -2,17 +2,21 @@ const express = require('express');
 const conexao = require('../config/db');
 const routers = require('../src/routers');
 const cors = require('cors')
+require('dotenv').config();
 
 const app = express(); // api utilize o express
+
+app.use(cors());//necessario para habilitar comunicação com servidor externo
 app.use(express.json()); //use o modo json
-app.use(cors());
+
 app.use(routers); //utilize as totas
 
+PORT = process.env.PORT || 3001
 
 conexao.query("select 1") //selecione uma conexão
 .then(() =>{
     console.log("conectado com sucesso") //se foi sucesso imprima:
-    app.listen(3001, function(){ //conexão na porta, fique online na porta
+    app.listen(PORT, function(){ //conexão na porta, fique online na porta
         console.log("Servidor executando na url:http://localhost:3001")
     });
 })

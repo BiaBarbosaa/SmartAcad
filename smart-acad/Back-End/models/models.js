@@ -1,35 +1,83 @@
-//Arquivo para realizar as regras do negocio, comunicação com o banco de dados
+const executeQuery = require('../database/query')
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
+require('dotenv').config();
 
-const cliente = require('../config/db');
-const conexao = require('../config/db') //impot da conexao com o banco
 
-const Model = {
-    getColaboradorById: async (id) => { //fazendo uma consulta
-        const result = await conexao.query("SELECT * FROM livro WHERE id=?", [id]) //armazenando a resultado
-            .catch(erro => console.log(erro));
-        return result;
+const Colaboradores = {
+
+    criarCliente: async(nome, sobrenome, genero, idade, telefone, cpf, email, cep, logradouro, complemento, cidade, uf, observacao, status)=> {
+
+        console.log(nome);
+
+        // try {
+        //     const {nome, sobrenome, genero, idade, telefone, cpf, email, cep, logradouro, complemento, cidade, uf, observacao, status } = cliente;
+
+        //     console.log(cliente)
+
+
+        //     const [result] = await conexao.query(
+        //         "INSERT INTO cliente (nome, sobrenome, genero, idade, telefone, cpf, email, cep, logradouro, complemento, cidade, uf, observacao, status) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+        //         [nome, sobrenome, genero, idade, telefone, cpf, email, cep, logradouro, complemento, cidade, uf, observacao, status]
+        //     );
+        //     return result
+        // }
+
+        // catch (error) {
+        //     throw new Error(`Erro ao cadastrar o cliente ${error.message}`)
+        // }
     },
+    
+    // cadastrar e login
+    registrarUsuarios: async (nome, sobrenome, regra, email, senha) => { 
+    try {
 
-    cadastrarcolaborador: async (nome, sobrenome, telefone, email, senha, dataMatricula, genero, cpf, cep, endereco, bairro, observacao, cliente_id) => {
+        const password = await bcrypt.hash(senha, 10);
+        return await executeQuery(
+            'INSERT INTO usuarios (nome, sobrenome, regra, email, senha) VALUES (?,?,?,?,?)',
+            [nome, sobrenome, regra, email, password] 
+        );
+    } catch (error) {
+        throw error;
+    }
+},
+
+    login: async(email,senha)=>{
         try{
-            const result = await conexao.query("INSERT INTO cliente values(?,?,?,?,?,?,?,?,?,?,?,?)",
-                [nome, sobrenome, telefone, email, senha, dataMatricula, genero, cpf, cep, endereco, bairro, observacao, cliente_id ])
-            return result;
+
+            const consulta = await Colaboradores.getEmail(email);
+
+            if(consulta.length > 0){
+                //comparar senha
+                //senha = senha do login que vem pelo post
+                //consulta[0].senha = ao objeto do banco
+                const match = await bcrypt.compare(senha, consulta[0].senha)
+
+                if (match) {
+                    const token = jwt.sign(
+                        //informações do usúario no banco
+                        { id: consulta[0].id, email: consulta[0].email, regra: consulta[0].regra },
+                        //assinatura com a chave secreta
+                        process.env.JWT_SECRET,
+                        { expiresIn: '25m' }
+                    );
+                    //retorno do token e da regra do usuar
+                    return { token, regra: consulta[0].regra };
+
+                }
+                return null;
+            }
+            return null;
         }
         catch(error){
-            console.log(error)
-            throw new Error (`Erro ao criar o cliente ${error.message}`)
-
+            throw error;
+        
         }
-       
-
     },
 
-    deleteID: async (id) => { 
-        const [result] = await conexao.query("DELETE FROM livro WHERE id=?", [id]) 
-        .catch(erro => console.log(erro));
-        return result;
-    },
-}
+    getEmail: async(email)=>{
+       return await executeQuery('SELECT id, email, senha, regra FROM usuarios WHERE email=?', [email])
+    }
+};
 
-module.exports = Model;
+module.exports = Colaboradores;

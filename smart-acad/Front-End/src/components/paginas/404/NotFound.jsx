@@ -16,7 +16,7 @@ function NotFound() {
                             <div className="error-content">
                                 <h1>404</h1>
                                 <p>Oops! A página que você está procurando não existe.</p>
-                                <Link to="/" class="btn btn-primary">Voltar</Link>
+                                <Link to="/home" class="btn btn-danger">Voltar</Link>
                             </div>
                         </div>
                     </main>

@@ -32,7 +32,7 @@ function App() {
           {/*Rota para página 404*/}
           <Route path="*" element={<NotFound/>} />
           {/*Rota para página home*/}
-          <Route path="/" element={<Home/>} />
+          <Route path="/home" element={<Home/>} />
         </Routes>
     </>
   );
