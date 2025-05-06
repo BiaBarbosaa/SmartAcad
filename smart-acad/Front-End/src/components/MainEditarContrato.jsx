@@ -68,12 +68,11 @@ function MainEditarContrato() {
 
   return (
     <>
-      <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4 BBcontrato-main">
+      <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4 main-fundo ">
+        <h2 className="BBlinha">Cadastrar contrato</h2>
         <div className="BB2formulario">
           <div className="BBconteudo-forms">
             <form onSubmit={editarContrato} className="row g-3">
-              <h4>Cadastro de contrato</h4>
-
               {/* Linha 1 - Código e Nome */}
               <div className="BBarea-info">
                 <div className="row align-items-center">

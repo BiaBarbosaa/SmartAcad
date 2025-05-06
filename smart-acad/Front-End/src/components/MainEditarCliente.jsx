@@ -132,13 +132,15 @@ function MainEditarCliente() {
     return (
         <>
 
-            <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4 main-fundo">
+            <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h2 className="">Editar cadastro de clientes</h2>
+            </div>
 
                 <div className="BB1formulario">
                     <div className="BBconteudo-forms">
 
                         <form onSubmit={editarCliente} className="row g-3">
-                            <h4>Cadastro de clientes</h4>
                             <h5>Dados pessoais</h5>
                             <div className="col-md-4">
                                 <label htmlFor="nome" className="form-label">Nome:</label>
