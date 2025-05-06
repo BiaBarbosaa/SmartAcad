@@ -15,7 +15,7 @@ function Navbar() {
             <i className="bi bi-list h4"></i>
           </button>
           
-          <a href="/" className="logo-brand d-flex align-items-center text-decoration-none">
+          <a href="/home" className="logo-brand d-flex align-items-center text-decoration-none">
             <i className="bi bi-activity fs-5 me-2 text-danger"></i>
             <span className="text-dark fw-semibold">SMART ACAD</span>
           </a>
@@ -32,17 +32,6 @@ function Navbar() {
 
         <div className="collapse navbar-collapse order-2 order-md-2" id="navbarContent">
           <div className="d-flex justify-content-center flex-grow-1 mx-lg-4">
-            <div className="search-container input-group">
-              <input
-                type="text"
-                className="form-control search-input border-secondary bg-white"
-                placeholder="Pesquisar..."
-                aria-label="Search"
-              />
-              <button className="btn search-btn border-secondary">
-                <i className="bi bi-search fs-5 text-secondary"></i>
-              </button>
-            </div>
           </div>
 
           <div className="d-flex align-items-center ms-auto order-3">
@@ -57,8 +46,8 @@ function Navbar() {
               
               <ul className="dropdown-menu dropdown-menu-end mt-2">
                 <li>
-                  <Link className="dropdown-item text-danger" to="/login">
-                    <i className="bi bi-box-arrow-right me-2"></i>Sair
+                  <Link className="dropdown-item a text-danger" to="/login">
+                    <i className="bi bi-box-arrow-right me-8"></i>Sair
                   </Link>
                 </li>
               </ul>

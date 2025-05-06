@@ -1,31 +1,63 @@
+import React, {useState} from "react"; 
+import { Link, useNavigate } from "react-router-dom";
 import './paginas/Login/Login.css'
-import React from 'react'; 
-
+import axios from 'axios';
 
 function MainLogin() {
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('');
+    const [erroMensagem, setMensagem] = useState('');
+    const navigate = useNavigate();
+
+    const handleLogin = async(e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.post('http://localhost:3001/login', {email, senha});
+            if(response.status === 200) {
+                navigate('/home')
+            }
+        }
+        catch(error) {
+            setMensagem('Email ou senha incorretos')
+        }
+    }
+
     return (
-        <>
-            <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                </div>
+        <div className="container-fluid-2">
+            <div className="form-container">
+                <form className="form" onSubmit={handleLogin}>
+                    {erroMensagem && <p className="error-message">{erroMensagem}</p>}
+                    <h1 className="title">Login</h1>
+                    <p className="subtitle">Insira suas credenciais para acessar sua conta</p>
 
-                <div className="container">
-                    <div className="form-container">
-                        <form className="form">
-                            <h2 className="title">Bem-vindo de volta!</h2>
-                            <label>Insira suas credenciais para acessar sua conta</label>
-
-                            <label>Email</label>
-                            <input className="input" type="email" placeholder="Digite seu email" />
-                            <label>Senha</label>
-                            <input className="input" type="password" placeholder="Digite sua senha" />
-                            <button className="button">Login</button>
-                        </form>
+                    <div className="input-group">
+                        <label>Email</label>
+                        <input 
+                            type="email" 
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            placeholder="Digite seu email"
+                        />
                     </div>
-                    <div className="image-container"></div>
-                </div>
-            </main>
-        </>
+
+                    <div className="input-group">
+                        <label>Senha</label>
+                        <input 
+                            type="password" 
+                            value={senha}
+                            onChange={(e) => setSenha(e.target.value)}
+                            placeholder="Digite sua senha"
+                        />
+                    </div>
+
+                    <button className="button">Login</button>
+                    
+                    <p className="register-link">Não tem uma conta? <Link to="/cadastro">Cadastrar</Link>
+                    </p>
+                </form>
+            </div>
+            <div className="image-container"></div>
+        </div>
     );
 }
 export default MainLogin;

@@ -109,9 +109,8 @@ function MainCadastroCliente() {
                                 <label htmlFor="inputPassword4" className="form-label">Sobrenome:</label>
                                 <input value={sobrenome} onChange={(e) => setSobrenome(e.target.value)} type="text" className="form-control" id="sobrenome" name="sobrenome" />
                             </div>
-                            <div className="col-1 me-4">
-                                <label htmlFor="genero" className="form-label">Gênero:</label>
-                                <select
+                            <div className="col-1 me-2">  {/* Alterado de me-4 para me-2 */}
+                                <label htmlFor="genero" className="form-label">Gênero:</label>                                <select
                                     value={genero || ''} // Garante que não será undefined
                                     onChange={(e) => setGenero(e.target.value)}
                                     className="form-control"
@@ -124,9 +123,9 @@ function MainCadastroCliente() {
                                 </select>
                             </div>
 
-                            <div className="col-1 me-1">  {/* Adicionado me-2 */}
-                                <label htmlFor="idade" className="form-label">Idade:</label>
-                                <input value={idade} onChange={(e) => setIdade(e.target.value)} type="text" className="form-control" id="idade" name="idade" />
+                            <div className="col-1 me-2">  {/* Alterado de me-1 para me-2 */}
+                            <label htmlFor="idade" className="form-label">Idade:</label>
+                            <input value={idade} onChange={(e) => setIdade(e.target.value)} type="text" className="form-control" id="idade" name="idade" />
                             </div>
                             <div className="col-md-3">
                                 <label htmlFor="inputCity" className="form-label">Telefone:</label>

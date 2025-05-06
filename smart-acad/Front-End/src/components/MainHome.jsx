@@ -36,7 +36,7 @@ function MainHome() {
                 </div>
                 <div className="dashboard-container">
                     {/* Cards Superiores */}
-                    <div className="grid-container">
+                    {/* <div className="grid-container">
                         <div className="info-card">
                             <h3>USUÁRIOS ATIVOS</h3>
                             <div className="info-value">987</div>
@@ -49,7 +49,7 @@ function MainHome() {
                             <h3>TOTAL CONTRATO</h3>
                             <div className="info-value">679</div>
                         </div>
-                    </div>
+                    </div> */}
 
                     {/* Gráficos Superiores */}
                     <div className="top-charts-wrapper">

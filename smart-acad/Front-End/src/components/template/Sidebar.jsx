@@ -1,27 +1,22 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+
 function Sidebar() {
   const pagina = useLocation();
-  /*
-    Verifica se a rota atual pertence a uma das rotas rastreadas abaixo
-  */
- 
-  let editar = window.location.pathname; //retorna o caminho e o nome do arquivo da página atual
+  const editar = window.location.pathname;
 
-   const areaCliente =
+  const areaCliente =
     pagina.pathname === "/cadastrar-cliente" ||
     pagina.pathname === "/listar-cliente" ||
-    editar.match(/editar-cliente/)
+    editar.match(/editar-cliente/);
 
-    const areaContrato =
+  const areaContrato =
     pagina.pathname === "/cadastrar-contrato" ||
     pagina.pathname === "/listar-contrato" ||
-    editar.match(/editar-contrato/)
-
-
+    editar.match(/editar-contrato/);
 
   return (
-    <div className=" cortestee sidebar sidebar2 border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
+    <div className="cortestee sidebar sidebar2 border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
       <div
         className="offcanvas-md offcanvas-end bg-body-tertiary"
         tabIndex="-1"
@@ -42,24 +37,26 @@ function Sidebar() {
         </div>
         <div className="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary">
           <ul className="nav nav-pills flex-column mb-auto">
-            <li className="nav-item">
-            <button
-              className="btn btn-link-sidebar d-inline-flex align-items-center rounded border-0 collapsed">
-              <Link className="txt-btn-link-sidebar ms-4 align-items-center text-dark" to="/">
-                <i className="text- icons-sidebar d-inline-flex me-1 bi bi-house-door-fill text-dark"></i> Home
-                </Link>
-            </button>
+            <li className="mb-1">
+              <Link
+                to="/home"
+                className="sidebar-home-link btn d-inline-flex align-items-center rounded border-0"
+              >
+                <i class="bi bi-bar-chart-fill sidebar-home-icon"></i>
+                <span>Home</span>
+              </Link>
             </li>
             <hr className="my-3" />
-            
+
+            {/* Restante do código mantido igual */}
             <li className="mb-1">
               <button
-                className=" ms-1 btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                className="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
                 data-bs-toggle="collapse"
                 data-bs-target="#venda-collapse"
                 aria-expanded={areaCliente ? "true" : "false"}
               >
-                 Cliente
+                Cliente
               </button>
               <div
                 className={`collapse ${areaCliente ? "show" : ""}`}
@@ -86,14 +83,15 @@ function Sidebar() {
               </div>
             </li>
             <hr className="my-3" />
+
             <li className="mb-1">
               <button
-                className=" ms-1 btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                className="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
                 data-bs-toggle="collapse"
                 data-bs-target="#compra-collapse"
                 aria-expanded={areaContrato ? "true" : "false"}
               >
-                 Contrato
+                Contrato
               </button>
               <div
                 className={`collapse ${areaContrato ? "show" : ""}`}
@@ -116,19 +114,14 @@ function Sidebar() {
                       Listar
                     </Link>
                   </li>
-                  
                 </ul>
               </div>
             </li>
-           
-            
-                </ul>
-              </div>
-            
-        
+          </ul>
         </div>
       </div>
-    
+    </div>
   );
 }
+
 export default Sidebar;

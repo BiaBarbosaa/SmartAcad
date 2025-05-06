@@ -5,8 +5,10 @@ const cors = require('cors')
 require('dotenv').config();
 
 const app = express(); // api utilize o express
-app.use(express.json()); //use o modo json
+
 app.use(cors());//necessario para habilitar comunicação com servidor externo
+app.use(express.json()); //use o modo json
+
 app.use(routers); //utilize as totas
 
 PORT = process.env.PORT || 3001

@@ -1,29 +1,3 @@
-.dashboard-container {
-  padding: 20px;
-  min-height: 100vh;
-}
-
-.grid-container {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
-  margin-bottom: 30px;
-}
-
-.info-card {
-  background: #f8f5f5;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: rgba(255, 0, 0, 0.3) 0px 0px 0px 3px;
-  text-align: center;
-}
-
-.info-value {
-  color: #333;
-  font-size: 24px;
-  font-weight: bold;
-}
-
 .top-charts-wrapper {
   display: flex;
   justify-content: center;
@@ -40,28 +14,34 @@
   margin-bottom: 20px;
 }
 
-.chart-card.full-width {
-  width: 100%;
-}
-
+/* Novos estilos para os gráficos superiores */
 .top-charts-wrapper .chart-card {
-  flex: 1;
-  min-width: 400px;
-  max-width: 500px;
+  flex: 1 1 45%; /* Ajuste para ocupar 45% do container */
+  min-width: 400px; /* Largura mínima reduzida */
+  max-width: 600px; /* Largura máxima aumentada */
 }
 
-/* Responsividade */
+/* Ajuste para telas médias */
 @media (min-width: 768px) {
   .grid-container {
       grid-template-columns: repeat(3, 1fr);
   }
 
   .top-charts-wrapper {
-      gap: 50px;
+      gap: 20px;
+      flex-wrap: nowrap; /* Impede a quebra de linha */
   }
 
   .top-charts-wrapper .chart-card {
-    min-width: 100%;
+      min-width: auto; /* Remove a restrição mínima */
+      max-width: 50%; /* Garante igualdade de largura */
+      margin-bottom: 0;
+  }
 }
+
+/* Garante que o gráfico inferior ocupe 100% */
+.chart-card.full-width {
+  width: 100%;
+  max-width: none;
 }
 

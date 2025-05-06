@@ -61,3 +61,28 @@ html {
     min-height: 100vh;
   }
 }
+/*sidebar*/
+.sidebar-home-link {
+  color: var(--bs-dark);
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  width: 100%;
+  padding: 0.5rem 1rem;
+}
+
+.sidebar-home-icon {
+  vertical-align: baseline;
+  margin-right: 0.5rem;
+  font-size: 1.1em;
+  position: relative;
+  top: -6px; 
+}
+.imagem-sidebar{
+  /*background-image: url("../../assets/img/imagem-sidebar.png");
+  background-repeat: no-repeat;
+  background-size: cover; *//*toda sidebar*/
+  /*height: 100vh;*/
+  background-color: #cecaca;
+
+}
