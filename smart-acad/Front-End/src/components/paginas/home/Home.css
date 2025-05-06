@@ -1,47 +1,103 @@
-.top-charts-wrapper {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  flex-wrap: wrap;
-  margin: 30px 0;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+.container-principal {
+  padding: 15px;
 }
 
-.chart-card {
-  background: #fbfbfb;
+.borda-inferior {
+  border-bottom: 1px solid #dee2e6;
+}
+
+/* Container de Métricas */
+.container-metricas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 25px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.cartao-metrica {
   padding: 20px;
+  border-radius: 8px;
+  color: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: center;
+  min-height: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.azul { 
+  background: linear-gradient(135deg, #348ddb 0%, #0f6ec4 100%); 
+}
+.vermelho { 
+  background:  linear-gradient(135deg, #fd2020 0%, #d32f2f 100%); 
+}
+.verde {  
+  background: linear-gradient(135deg, #24b126 0%, #28a745 100%);
+ }
+
+.cartao-metrica h4 {
+  margin: 0 0 10px 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.cartao-metrica span {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+/* Container de Gráficos */
+.container-graficos {
+  padding: 20px;
+  background: #f8f9fa;
   border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
 }
 
-/* Novos estilos para os gráficos superiores */
-.top-charts-wrapper .chart-card {
-  flex: 1 1 45%; /* Ajuste para ocupar 45% do container */
-  min-width: 400px; /* Largura mínima reduzida */
-  max-width: 600px; /* Largura máxima aumentada */
+.graficos-superiores {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 25px;
 }
 
-/* Ajuste para telas médias */
-@media (min-width: 768px) {
-  .grid-container {
-      grid-template-columns: repeat(3, 1fr);
-  }
-
-  .top-charts-wrapper {
-      gap: 20px;
-      flex-wrap: nowrap; /* Impede a quebra de linha */
-  }
-
-  .top-charts-wrapper .chart-card {
-      min-width: auto; /* Remove a restrição mínima */
-      max-width: 50%; /* Garante igualdade de largura */
-      margin-bottom: 0;
-  }
+.cartao-grafico {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-/* Garante que o gráfico inferior ocupe 100% */
-.chart-card.full-width {
+.cabecalho-grafico h3 {
+  color: #2c3e50;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.linha-divisoria {
+  border-bottom: 2px solid #eee;
+  margin-bottom: 15px;
   width: 100%;
-  max-width: none;
 }
 
+.grafico-inferior {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 768px) {
+  .container-metricas,
+  .graficos-superiores {
+    grid-template-columns: 1fr;
+  }
+
+  .cartao-metrica span {
+    font-size: 1.5rem;
+  }
+}
