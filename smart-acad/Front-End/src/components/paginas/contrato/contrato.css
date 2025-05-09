@@ -5,7 +5,7 @@
   width: 100%;
 }
 .main-fundo{
-  background-color: rgba(229, 230, 233, 0.81); /* #E5E6E9 com 19% de transparência */
+  background-color:#ffffff; /* #E5E6E9 com 19% de transparência */
 }
 /* Estilos gerais para o formulário */
 .BB2formulario {
@@ -24,9 +24,7 @@
   display: inline-block;
   width: 100%; /* Força a largura total */
 }
-h2{
-  margin-top: 55px;
-}
+
 
 .BBconteudo-forms {
   padding: 30px;

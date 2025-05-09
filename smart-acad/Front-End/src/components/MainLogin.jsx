@@ -61,6 +61,7 @@ function MainLogin() {
                     
                     <p className="register-link">Não tem uma conta? <Link to="/cadastro">Cadastrar</Link>
                     </p>
+                    <p className="register-link">Esqueceu sua senha? <Link to="/resetarsenha">Resetar</Link></p>
                 </form>
             </div>
             <div className="image-container"></div>

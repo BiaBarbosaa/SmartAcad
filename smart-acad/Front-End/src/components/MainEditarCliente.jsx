@@ -1,28 +1,12 @@
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 
 
 function MainEditarCliente() {
 
     const { id } = useParams()
+    const navigate = useNavigate(); 
 
-    // useEffect executa um bloco de código react apenas uma
-    // vez ao carregar a página
-    {/* 
-    executa verificação a todo momento na página
-    tendo uma mudança atualiza a página
-     useEffect(() => {
-        getAluno();
-    })
-
-    */}
-    {/* 
-    executa apenas uma vez ao carregar a página
-     useEffect(() => {
-        getAluno();
-    }, [])
-
-    */}
     useEffect(() => {
         getCliente();
     }, [])
@@ -48,8 +32,6 @@ function MainEditarCliente() {
             console.log(`Erro ao buscar dados: ${erro}`);
         }
     }
-
-
     const [nome, setNome] = useState('');
     const [sobrenome, setSobrenome] = useState('');
     const [cep, setCep] = useState('');
@@ -107,7 +89,6 @@ function MainEditarCliente() {
         }
 
     }
-
     // Chamada a dados externos via API de forma assíncrona }
     async function chamarCep(event) {
 
@@ -133,9 +114,9 @@ function MainEditarCliente() {
         <>
 
             <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4 main-fundo">
-            <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h2 className="">Editar cadastro de clientes</h2>
-            </div>
+                <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h2 className="">Editar cadastro de clientes</h2>
+                </div>
 
                 <div className="BB1formulario">
                     <div className="BBconteudo-forms">
@@ -150,10 +131,9 @@ function MainEditarCliente() {
                                 <label htmlFor="inputPassword4" className="form-label">Sobrenome:</label>
                                 <input value={sobrenome} onChange={(e) => setSobrenome(e.target.value)} type="text" className="form-control" id="sobrenome" name="sobrenome" />
                             </div>
-                            <div className="col-1 me-4">
-                                <label htmlFor="genero" className="form-label">Gênero:</label>
-                                <select
-                                    value={genero || ''} // Garante que não será undefined
+                            <div className="col-1 me-2">  
+                                <label htmlFor="genero" className="form-label">Gênero:</label>                                <select
+                                    value={genero || ''} 
                                     onChange={(e) => setGenero(e.target.value)}
                                     className="form-control"
                                     id="genero"
@@ -165,9 +145,9 @@ function MainEditarCliente() {
                                 </select>
                             </div>
 
-                            <div className="col-1 me-1">  {/* Adicionado me-2 */}
-                                <label htmlFor="idade" className="form-label">Idade:</label>
-                                <input value={idade} onChange={(e) => setIdade(e.target.value)} type="text" className="form-control" id="idade" name="idade" />
+                            <div className="col-1 me-2">  
+                            <label htmlFor="idade" className="form-label">Idade:</label>
+                            <input value={idade} onChange={(e) => setIdade(e.target.value)} type="text" className="form-control" id="idade" name="idade" />
                             </div>
                             <div className="col-md-3">
                                 <label htmlFor="inputCity" className="form-label">Telefone:</label>
@@ -213,12 +193,16 @@ function MainEditarCliente() {
                                     rows="4"
                                 ></textarea>
                             </div>
-                            <div className="col-md-12"> {/* Envolva os botões em uma col-md-12 */}
+                            <div className="col-md-12"> 
                                 <div className="container-botao">
                                     <button type="submit" className="btn btn-primary botao-editar">
                                         <i className="bi bi-box-arrow-up"></i> Editar cliente
                                     </button>
-                                    <button type="button" className="btn btn-primary botao-cancelar">
+                                    <button
+                                        type="button"
+                                        className="btn btn-primary botao-cancelar"
+                                        onClick={() => navigate("/listar-cliente")} 
+                                    >
                                         Cancelar
                                     </button>
                                 </div>

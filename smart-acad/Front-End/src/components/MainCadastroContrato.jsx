@@ -1,6 +1,4 @@
 import { useState } from "react";
-
-
 function MainCadastroContrato() {
 
   const [cod, setCod] = useState('');
@@ -45,19 +43,16 @@ function MainCadastroContrato() {
 
   }
 
-
   return (
     <>
-
-
-
       <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4 main-fundo ">
-        <h2 className="BBlinha">Cadastrar contrato</h2>
+      <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h2 className="">Cadastro de contrato</h2>
+            </div>
         <div className="BB2formulario">
           <div className="BBconteudo-forms">
             <form onSubmit={cadastrarContrato} className="row g-3">
 
-              {/* Linha 1 - Código e Nome */}
               <div className="BBarea-info">
                 <div className="row align-items-center">
                   <div className="col-md-2">

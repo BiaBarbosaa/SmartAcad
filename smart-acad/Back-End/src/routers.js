@@ -12,6 +12,9 @@ routers.post('/cadastroCliente', colaboradorController.cadastrarNovoCliente);
 routers.get('/api/listarCliente', clienteController.listarTodos );
 routers.delete('/api/deletarproduto/:id', clienteController.deletarId);
 
+//atualizar senha
+routers.post('/atualiza', colaboradorController.verificarEmail);
+routers.patch('/atualizasenha',colaboradorController.atualizarSenha);
 
 module.exports = routers;
 
