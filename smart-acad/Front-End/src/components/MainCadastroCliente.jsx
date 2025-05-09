@@ -90,10 +90,7 @@ function MainCadastroCliente() {
     return (
         <>
 
-            {/* <main className="BBcor col-md-9 ms-sm-auto col-lg-10 px-md-4"> */}
-
-
-            <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4 main-fundo">
+  <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4 main-fundo">
             <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h2 className="">Cadastro de clientes</h2>
             </div>
@@ -111,9 +108,9 @@ function MainCadastroCliente() {
                                 <label htmlFor="inputPassword4" className="form-label">Sobrenome:</label>
                                 <input value={sobrenome} onChange={(e) => setSobrenome(e.target.value)} type="text" className="form-control" id="sobrenome" name="sobrenome" />
                             </div>
-                            <div className="col-1 me-2">  {/* Alterado de me-4 para me-2 */}
+                            <div className="col-1 me-2"> 
                                 <label htmlFor="genero" className="form-label">Gênero:</label>                                <select
-                                    value={genero || ''} // Garante que não será undefined
+                                    value={genero || ''} 
                                     onChange={(e) => setGenero(e.target.value)}
                                     className="form-control"
                                     id="genero"
@@ -125,7 +122,7 @@ function MainCadastroCliente() {
                                 </select>
                             </div>
 
-                            <div className="col-1 me-2">  {/* Alterado de me-1 para me-2 */}
+                            <div className="col-1 me-2">  
                             <label htmlFor="idade" className="form-label">Idade:</label>
                             <input value={idade} onChange={(e) => setIdade(e.target.value)} type="text" className="form-control" id="idade" name="idade" />
                             </div>

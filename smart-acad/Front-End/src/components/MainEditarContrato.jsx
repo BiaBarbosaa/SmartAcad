@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link , useNavigate} from "react-router-dom";
 
 
 function MainEditarContrato() {
 
   const { id } = useParams()
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     getContrato();
@@ -69,11 +70,13 @@ function MainEditarContrato() {
   return (
     <>
       <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4 main-fundo ">
-        <h2 className="BBlinha">Cadastrar contrato</h2>
+      <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h2 className="">Editar cadastro de contrato</h2>
+            </div>
         <div className="BB2formulario">
           <div className="BBconteudo-forms">
             <form onSubmit={editarContrato} className="row g-3">
-              {/* Linha 1 - Código e Nome */}
+
               <div className="BBarea-info">
                 <div className="row align-items-center">
                   <div className="col-md-2">
@@ -158,14 +161,20 @@ function MainEditarContrato() {
                 </div>
               </div>
 
-              <div className="col-md-12"> {/* Envolva os botões em uma col-md-12 */}
+              <div className="col-md-12"> 
                 <div className="container-botao">
                   <button type="submit" className="btn btn-primary botao-editar">
                     <i className="bi bi-box-arrow-up"></i> Editar cliente
                   </button>
-                  <button type="button" className="btn btn-primary botao-cancelar">
-                    Cancelar
-                  </button>
+                  <button
+                                        type="button"
+                                        className="btn btn-primary botao-cancelar"
+                                        onClick={() => 
+                                          
+                                          navigate("/listar-contrato")} 
+                                    >
+                                        Cancelar
+                                    </button>
                 </div>
               </div>
             </form>
