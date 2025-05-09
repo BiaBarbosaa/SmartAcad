@@ -2,7 +2,7 @@ const express = require('express');
 const conexao = require('../config/db');
 const routers = require('../src/routers');
 const vereficarToken = require('../middlewares/token');
-const cors = require('cors')
+const cors = require('cors');
 require('dotenv').config();
 
 const app = express(); // api utilize o express

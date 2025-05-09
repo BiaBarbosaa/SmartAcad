@@ -53,8 +53,8 @@ function MainCadastroCliente() {
             })
 
             console.log(cadastro)
-            if (cadastro.sucesso) {
-                alert(`cliente cadastrado com sucesso`);
+            if (cadastro.status === 201) {
+                alert(`cliente cadastrado com sucesso`);                
             }
 
 

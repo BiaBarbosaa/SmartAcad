@@ -3,8 +3,11 @@ const clienteModel = require('../models/models');
 const clienteController = {
 
     async cadastrarNovoCliente(req, res) { 
+        const status = "ativo";
         try {
-            const { nome, sobrenome, genero, idade, telefone, cpf, email, cep, logradouro, complemento, cidade, uf, observacao, status } = req.body;
+            const { nome, sobrenome, genero, idade, telefone, cpf, email, cep, logradouro, complemento, cidade, uf, observacao} = req.body;
+
+            console.log(req.body);
 
             const statusValidos = ['ativo', 'inativo'];
             if (!statusValidos) {

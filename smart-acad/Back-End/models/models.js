@@ -5,9 +5,9 @@ require('dotenv').config();
 
 
 const Colaboradores = {
-    criarCliente: async (
-        nome, sobrenome, genero, idade, telefone, cpf, email, cep, logradouro, 
-        complemento, cidade, uf, observacao, status) => {
+    criarCliente: async (nome, sobrenome, genero, idade, telefone, cpf, email, cep, logradouro,complemento, cidade, uf, observacao, status) => {
+
+        console.log(status);
         try {
             const result = await executeQuery(
                 `INSERT INTO cliente (
@@ -21,7 +21,7 @@ const Colaboradores = {
             return result;
     
         } catch (error) {
-            res.status(500).json({ mensagem: error.message });
+            throw error;
         }
     },
 

@@ -47,7 +47,7 @@ const MainListarCliente = () => {
         <main className="BBcor-rosa col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h1 className="h2">Listar contrato</h1>
-                <Link to="/cadastrar-cliente" className="btn btn-danger">
+                <Link to="/cadastrar-contrato" className="btn btn-danger">
                     <i className="bi bi-plus-circle me-2"></i>Novo Contrato
                 </Link>
             </div>
