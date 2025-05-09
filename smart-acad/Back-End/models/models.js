@@ -5,28 +5,26 @@ require('dotenv').config();
 
 
 const Colaboradores = {
-
-    criarCliente: async(nome, sobrenome, genero, idade, telefone, cpf, email, cep, logradouro, complemento, cidade, uf, observacao, status)=> {
-
-        console.log(nome);
-
-        // try {
-        //     const {nome, sobrenome, genero, idade, telefone, cpf, email, cep, logradouro, complemento, cidade, uf, observacao, status } = cliente;
-
-        //     console.log(cliente)
-
-
-        //     const [result] = await conexao.query(
-        //         "INSERT INTO cliente (nome, sobrenome, genero, idade, telefone, cpf, email, cep, logradouro, complemento, cidade, uf, observacao, status) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
-        //         [nome, sobrenome, genero, idade, telefone, cpf, email, cep, logradouro, complemento, cidade, uf, observacao, status]
-        //     );
-        //     return result
-        // }
-
-        // catch (error) {
-        //     throw new Error(`Erro ao cadastrar o cliente ${error.message}`)
-        // }
+    criarCliente: async (
+        nome, sobrenome, genero, idade, telefone, cpf, email, cep, logradouro, 
+        complemento, cidade, uf, observacao, status) => {
+        try {
+            const result = await executeQuery(
+                `INSERT INTO cliente (
+                    nome, sobrenome, genero, idade, telefone, cpf, email, cep, 
+                    logradouro, complemento, cidade, uf, observacao, status
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+                [nome, sobrenome, genero, idade, telefone, cpf, email, cep, 
+                 logradouro, complemento, cidade, uf, observacao, status]
+            );
+    
+            return result;
+    
+        } catch (error) {
+            res.status(500).json({ mensagem: error.message });
+        }
     },
+
     
     // cadastrar e login
     registrarUsuarios: async (nome, sobrenome, regra, email, senha) => { 

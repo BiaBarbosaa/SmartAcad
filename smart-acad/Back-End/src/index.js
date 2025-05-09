@@ -1,14 +1,15 @@
 const express = require('express');
 const conexao = require('../config/db');
 const routers = require('../src/routers');
+const vereficarToken = require('../middlewares/token');
 const cors = require('cors')
 require('dotenv').config();
 
 const app = express(); // api utilize o express
 
-app.use(cors());//necessario para habilitar comunicação com servidor externo
 app.use(express.json()); //use o modo json
-
+app.use(cors());//necessario para habilitar comunicação com servidor externo
+app.use('/api', vereficarToken)
 app.use(routers); //utilize as totas
 
 PORT = process.env.PORT || 3001

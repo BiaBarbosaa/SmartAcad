@@ -11,6 +11,7 @@ import EditarCliente from "./components/paginas/cliente/EditarCliente"
 import CadastrarContrato from "./components/paginas/contrato/CadastrarContrato"
 import ListarContrato from "./components/paginas/contrato/ListarContrato"
 import EditarContrato from "./components/paginas/contrato/EditarContrato"
+import Cadastro from "./components/paginas/Cadastro/Cadastro";
 
 
 
@@ -28,11 +29,13 @@ function App() {
           <Route path="/cadastrar-contrato" element={<CadastrarContrato/>} />
           <Route path="/editar-contrato/:id" element={<EditarContrato/>} />
           <Route path="/login" element={<Login/>} />
+          <Route path="/cadastro" element={<Cadastro/>} />
           
           {/*Rota para página 404*/}
           <Route path="*" element={<NotFound/>} />
           {/*Rota para página home*/}
           <Route path="/home" element={<Home/>} />
+          <Route path="/" element={<Home/>} />
         </Routes>
     </>
   );

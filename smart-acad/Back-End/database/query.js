@@ -7,6 +7,7 @@ async function executeQuery(query, params = []){
         return rows
     }
     catch(error){
+        console.log(error);
         throw new Error(`Erro na execução da consulta ${error.message}`)
     }
 };

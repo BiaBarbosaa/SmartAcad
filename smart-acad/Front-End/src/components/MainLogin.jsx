@@ -13,7 +13,14 @@ function MainLogin() {
         e.preventDefault();
         try {
             const response = await axios.post('http://localhost:3001/login', {email, senha});
+
+            console.log(response.data.token);
+
             if(response.status === 200) {
+                const accessToken = response.data.token;
+                
+                localStorage.setItem('token',accessToken);
+
                 navigate('/home')
             }
         }
