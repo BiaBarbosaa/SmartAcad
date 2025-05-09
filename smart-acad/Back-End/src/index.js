@@ -21,4 +21,5 @@ conexao.query("select 1") //selecione uma conexão
         console.log("Servidor executando na url:http://localhost:3001")
     });
 })
+
 .catch(erro => console.log("Falha na conexão")); //se der erro

@@ -13,6 +13,7 @@ import ListarContrato from "./components/paginas/contrato/ListarContrato"
 import EditarContrato from "./components/paginas/contrato/EditarContrato"
 import Cadastro from "./components/paginas/Cadastro/Cadastro";
 
+import  ResetarSenha  from './components/paginas/Login/ReseteSenha';
 
 
 
@@ -36,6 +37,8 @@ function App() {
           {/*Rota para página home*/}
           <Route path="/home" element={<Home/>} />
           <Route path="/" element={<Home/>} />
+
+          <Route path='/resetarsenha' element={<ResetarSenha/>} />
         </Routes>
     </>
   );

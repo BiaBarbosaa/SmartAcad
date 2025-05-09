@@ -31,6 +31,8 @@ const clienteController = {
     cadastrarUsuarios: async (req, res) => {
 
         const { nome, sobrenome, regra, email, senha } = req.body;
+
+        console.log(req.body);
         try {
             const emailExistente = await clienteModel.getEmail(email);
 
@@ -72,7 +74,46 @@ const clienteController = {
             res.status(500).json({ mensagem: error.message })
 
         }
-    }
+    },
+    //controller para verificar se o email existe
+    verificarEmail: async(req,res)=>{
+        const{email}=req.body
+
+        console.log(req.body);
+        
+        try{
+            const consulta = await clienteModel.getEmail(email);
+
+            if(consulta.length > 0){
+                res.status(200).json({msg:"sucesso"})
+            }
+            else{
+                res.status(404).json({msg:"falha na consulta"})
+            }
+        }
+        catch(erro){
+            res.status(500).json({msg:"Erro no servidor"})
+        }
+
+    },
+
+    //controlle para atualizar senha do funcionario
+    atualizarSenha: async(req,res) =>{
+        const{email,senha}=req.body;
+        try{
+            const resultado = await clienteModel.resetarSenha(email,senha)
+
+            if(resultado.affectedRows > 0){
+                res.status(200).json({msg:"Atualizado com sucessor"})
+            }
+            else{
+                res.status(404).json({msg:"falha ao atualizar"})
+            }
+        }
+        catch(erro){
+            res.status(500).json({msg:"Erro no servidor"})
+        }
+    },
 
 };
 

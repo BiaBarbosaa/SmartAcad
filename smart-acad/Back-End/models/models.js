@@ -75,6 +75,17 @@ const Colaboradores = {
 
     getEmail: async(email)=>{
        return await executeQuery('SELECT id, email, senha, regra FROM usuarios WHERE email=?', [email])
+    },
+     //model para resetar senha
+     resetarSenha: async(email,senha) =>{
+        try{
+            //atualizar senha om o Hash
+            const hash = await bcrypt.hash(senha,10);
+            return await executeQuery('UPDATE cadastrofunc SET senha=? WHERE email=?',[hash,email])
+        }
+        catch(erro){
+            throw erro;
+        }
     }
 };
 
