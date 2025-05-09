@@ -1,0 +1,107 @@
+/* Login.css - Versão atualizada */
+
+.container-fluid-2 {
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+  }
+  
+  .form-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    padding: 2rem;
+  }
+  
+  .image-container {
+    flex: 1;
+    background-image: url("../../../../public/assets/img/academia.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+  }
+  
+  .form {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #1a1a1a;
+  }
+  
+  .subtitle {
+    color: #666;
+    margin-bottom: 2rem;
+  }
+  
+  .input-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-weight: 500;
+  }
+  
+  input, select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+    background-color: white;
+  }
+  
+  input:focus, select:focus {
+    outline: none;
+    border-color: #ff4d4d;
+  }
+  
+  .button {
+    width: 100%;
+    padding: 12px;
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.3s;
+  }
+  
+  .button:hover {
+    opacity: 0.9;
+  }
+  
+  .register-link {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: #666;
+  }
+  
+  .register-link a {
+    color: #ff4d4d;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .error-message {
+    color: #ff4444;
+    background: #ffecec;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+  }

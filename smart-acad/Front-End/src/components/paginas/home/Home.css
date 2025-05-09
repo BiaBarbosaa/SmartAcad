@@ -36,7 +36,7 @@
   background:  linear-gradient(135deg, #fd2020 0%, #d32f2f 100%); 
 }
 .verde {  
-  background: linear-gradient(135deg, #24b126 0%, #28a745 100%);
+  background: linear-gradient(135deg, #29b62b 0%, #28a745 100%);
  }
 
 .cartao-metrica h4 {
@@ -53,7 +53,7 @@
 /* Container de Gráficos */
 .container-graficos {
   padding: 20px;
-  background: #f8f9fa;
+  background: #f0f0f0;
   border-radius: 10px;
   font-family: 'Poppins', sans-serif;
 }
