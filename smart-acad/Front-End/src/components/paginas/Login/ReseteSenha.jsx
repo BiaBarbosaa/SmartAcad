@@ -79,7 +79,7 @@ const navigate = useNavigate();
                 />
 
                 {!mostrarFormulario && (
-                    <button className="btn btn-primary w-100 mb-2" onClick={handleResetSenha}>
+                    <button className="btn btn-danger w-100 mb-2" onClick={handleResetSenha}>
                         Resetar Senha
                     </button>
                 )}

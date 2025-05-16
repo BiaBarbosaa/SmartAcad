@@ -32,15 +32,11 @@
   
   .title {
     font-size: 2rem;
-    margin-bottom: 0.5rem;
+    
     color: #1a1a1a;
   }
   
-  .subtitle {
-    color: #666;
-    margin-bottom: 2rem;
-  }
-  
+
   .input-group {
     margin-bottom: 1.5rem;
   }

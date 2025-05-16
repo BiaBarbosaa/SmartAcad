@@ -23,11 +23,14 @@ function MainCadastro() {
                 regra
             });
 
-            if(response.status === 201) {
+            if(response.status === 200) {
+                alert('Cadastro realizado com sucesso');
                 navigate('/login');
+              
             }
         } catch(error) {
-            setErroMensagem('Erro ao cadastrar. Verifique os dados.');
+            alert('Erro ao cadastrar. Verifique os dados.');
+            
         }
     };
 
@@ -37,8 +40,6 @@ function MainCadastro() {
                 <form className="form" onSubmit={handleCadastro}>
                     {erroMensagem && <p className="error-message">{erroMensagem}</p>}
                     <h1 className="title">Cadastro</h1>
-                    <p className="subtitle">Crie sua conta preenchendo os campos abaixo</p>
-
                     <div className="input-group">
                         <label>Nome</label>
                         <input 

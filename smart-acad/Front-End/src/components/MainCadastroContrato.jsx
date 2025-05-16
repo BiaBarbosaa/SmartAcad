@@ -15,32 +15,50 @@ function MainCadastroContrato() {
 
     // construindo o objeto aluno
     let contrato = {
-      cod, cod,
+      cod: cod,
       nome: nome,
       servicos: servicos,
       planos: planos,
       pagamento: pagamento
     }
-    // transformou o objeto aluno em formato de string JSON
+  
     contrato = JSON.stringify(contrato);
-    // enviamos de forma assíncrona para o backend
+  
     try {
-      let contrato = await fetch('http://localhost:8081/cadastroAluno', {
+      let contratos = await fetch('http://localhost:8081/cadastroAluno', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: contrato
       })
-      if (contrato.sucesso) {
+      if (contratos.sucesso) {
         alert(`cliente cadastrado com sucesso`);
       }
-
 
     } catch (erro) {
       alert(`Erro ao cadastrar cliente: ${erro}`);
     }
 
+  }
+  async function buscarCliente() {
+    
+    if (cod) {
+
+      try {
+        const resposta = await fetch(`http://localhost:3001/api/listarporid/${cod}`);
+        if (!resposta) {
+          alert("Cliente não encontrado.");
+        }else{
+          const dados = await resposta.json();
+          setNome(`${dados.nome} `);
+        }
+       
+      } 
+      catch (erro) {
+        alert("Erro ao buscar cliente: " + erro.message);
+      }
+    }
   }
 
   return (
@@ -57,7 +75,7 @@ function MainCadastroContrato() {
                 <div className="row align-items-center">
                   <div className="col-md-2">
                     <label htmlFor="cod" className="form-label">Código do cliente:</label>
-                    <input value={cod} onChange={(e) => setCod(e.target.value)} type="text" className="form-control" id="cod" name="cod" />
+                    <input value={cod} onBlur={(e) => buscarCliente(e.target.value)} onChange={(e) => setCod(e.target.value)} type="text" className="form-control" id="cod" name="cod" />
                   </div>
                   <div className="col-md-10">
                     <label htmlFor="nome" className="form-label">Nome completo:</label>

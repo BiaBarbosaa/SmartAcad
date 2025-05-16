@@ -90,8 +90,8 @@ function MainCadastroCliente() {
     return (
         <>
 
-  <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4 main-fundo">
-            <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4 container-principal main-fundo">
+            <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 borda-inferior">
                 <h2 className="">Cadastro de clientes</h2>
             </div>
                 <div className="BB1formulario">

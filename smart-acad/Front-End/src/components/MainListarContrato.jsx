@@ -14,7 +14,7 @@ const MainListarCliente = () => {
 
     useEffect(() => {//fica carregando a pagina
         axios.get('http://localhost:3001/api/listarCliente', {
-            headers: { 'Authorization': `Bearer ${token}` }
+            // headers: { 'Authorization': `Bearer ${token}` }
         })
             .then(response => {
                 setContratos(response.data.sort((a, b) => a.nome.localeCompare(b.nome)));

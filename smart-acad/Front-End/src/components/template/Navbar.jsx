@@ -40,7 +40,7 @@ function Navbar() {
                 style={{ outline: "none", boxShadow: "none" }}
               >
                 <img
-                  src="https://i.pravatar.cc/32"
+                  src="https://ionicframework.com/docs/img/demos/avatar.svg"
                   alt="avatar"
                   className="rounded-circle me-2"
                   style={{ width: "32px", height: "32px", objectFit: "cover" }}

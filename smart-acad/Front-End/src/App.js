@@ -36,7 +36,7 @@ function App() {
           <Route path="*" element={<NotFound/>} />
           {/*Rota para página home*/}
           <Route path="/home" element={<Home/>} />
-          <Route path="/" element={<Home/>} />
+          <Route path="/" element={<Login/>} />
 
           <Route path='/resetarsenha' element={<ResetarSenha/>} />
         </Routes>

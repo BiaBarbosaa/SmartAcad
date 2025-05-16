@@ -3,28 +3,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 require('dotenv').config();
 
-
-const Colaboradores = {
-    criarCliente: async (nome, sobrenome, genero, idade, telefone, cpf, email, cep, logradouro,complemento, cidade, uf, observacao, status) => {
-
-        console.log(status);
-        try {
-            const result = await executeQuery(
-                `INSERT INTO cliente (
-                    nome, sobrenome, genero, idade, telefone, cpf, email, cep, 
-                    logradouro, complemento, cidade, uf, observacao, status
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-                [nome, sobrenome, genero, idade, telefone, cpf, email, cep, 
-                 logradouro, complemento, cidade, uf, observacao, status]
-            );
-    
-            return result;
-    
-        } catch (error) {
-            throw error;
-        }
-    },
-
+const Usuarios = {
     
     // cadastrar e login
     registrarUsuarios: async (nome, sobrenome, regra, email, senha) => { 
@@ -76,12 +55,12 @@ const Colaboradores = {
     getEmail: async(email)=>{
        return await executeQuery('SELECT id, email, senha, regra FROM usuarios WHERE email=?', [email])
     },
-     //model para resetar senha
+     //
      resetarSenha: async(email,senha) =>{
         try{
-            //atualizar senha om o Hash
+            //
             const hash = await bcrypt.hash(senha,10);
-            return await executeQuery('UPDATE cadastrofunc SET senha=? WHERE email=?',[hash,email])
+            return await executeQuery('UPDATE usuarios SET senha=? WHERE email=?',[hash,email])
         }
         catch(erro){
             throw erro;
@@ -89,4 +68,4 @@ const Colaboradores = {
     }
 };
 
-module.exports = Colaboradores;
+module.exports = Usuarios;
