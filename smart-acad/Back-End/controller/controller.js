@@ -6,7 +6,6 @@ const clienteController = {
 
         const { nome, sobrenome, regra, email, senha } = req.body;
 
-        console.log(req.body);
         try {
             const emailExistente = await usuarioModel.getEmail(email);
 

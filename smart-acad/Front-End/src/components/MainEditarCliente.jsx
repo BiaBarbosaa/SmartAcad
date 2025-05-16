@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
+import { notificacao, notificacaoErro, notificacaoSucesso } from "./Notificacoes";
 
 
 function MainEditarCliente() {
@@ -28,8 +29,10 @@ function MainEditarCliente() {
             setTelefone(dadosCliente.telefone)
             setGenero(dadosCliente.genero)
             setObservacao(dadosCliente.observacao)
+            notificacaoSucesso()
         } catch (erro) {
             console.log(`Erro ao buscar dados: ${erro}`);
+            notificacaoErro();
         }
     }
     const [nome, setNome] = useState('');
@@ -73,7 +76,7 @@ function MainEditarCliente() {
         cliente = JSON.stringify(cliente);
         // enviamos de forma assíncrona para o backend
         try {
-            let cadastro = await fetch('http://localhost:8081/editarAluno', {
+            let cadastro = await fetch('http://localhost:8081/cadastroContrato', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

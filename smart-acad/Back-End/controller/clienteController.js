@@ -64,6 +64,29 @@ const ControllerCliente = {
         }
     },
 
+    async atualizarId(req, res) {
+
+        const{nome, sobrenome, genero, idade, telefone, cpf, email, cep, logradouro,complemento, cidade, uf, observacao} = req.body;
+
+        try {
+            if (!req.params.id) {
+                return res.status(400).json({ mensagem: 'ID inválido' });
+            }
+
+            const cliente = await clienteController.getClienteById(req.params.id);
+
+            if (!cliente) {
+                return res.status(404).json({ mensagem: 'Cliente não encontrado' });
+            }
+            else{
+                await clienteController.putAtualizarCliente(nome, sobrenome, genero, idade, telefone, cpf, email, cep, logradouro,complemento, cidade, uf, observacao, req.params.id);
+                res.status(200).json({ mensagem: 'Atualizado com sucesso' });
+            }   
+        } catch (error) {
+            res.status(500).json({ mensagem: error.message });
+        }
+    }
+
 }
 
 module.exports = ControllerCliente;

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 
+
+
 const MainListarCliente = () => {
     const [contratos, setContratos] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -30,12 +32,14 @@ const MainListarCliente = () => {
     const handleDelete = async (id) => {
         if (window.confirm("Tem certeza que deseja excluir este produto?")) {
             try {
+              
                 await axios.delete(`http://localhost:3001/api/deletarproduto/${id}`, {
                     headers: { 'Authorization': `Bearer ${token}` }
+                    
                 });
                 setContratos(contratos.filter(contratos => contratos.id !== id));
             } catch (error) {
-                alert("Erro ao excluir o produto.");
+             
             }
         }
     };

@@ -62,8 +62,8 @@ const Usuarios = {
             const hash = await bcrypt.hash(senha,10);
             return await executeQuery('UPDATE usuarios SET senha=? WHERE email=?',[hash,email])
         }
-        catch(erro){
-            throw erro;
+        catch(error){
+            throw error;
         }
     }
 };

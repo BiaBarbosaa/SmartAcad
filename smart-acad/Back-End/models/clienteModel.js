@@ -6,6 +6,7 @@ const Cliente = {
 
         try {
             const result = await executeQuery(
+              
                 `INSERT INTO cliente (
                     nome, sobrenome, genero, idade, telefone, cpf, email, cep, 
                     logradouro, complemento, cidade, uf, observacao, status
@@ -36,5 +37,31 @@ const Cliente = {
             throw error;
         }
     },
+
+    getClienteById: async (id) => {
+        try {
+            const [clienteAtualizado] = await executeQuery(
+                "SELECT nome, sobrenome, genero, idade, telefone, cpf, email, cep, logradouro,complemento, cidade, uf, observacao, status FROM cliente WHERE id=?", [id]
+            );
+            return clienteAtualizado
+        }
+        catch (error) {
+            throw error;
+        }
+    },
+
+    putAtualizarCliente: async (nome, sobrenome, genero, idade, telefone, cpf, email, cep, logradouro, complemento, cidade, uf, observacao, status, id) => {
+        try {
+            const result = await executeQuery(
+                "UPDATE cliente SET nome=?, sobrenome=?, genero=?, idade=?, telefone=?, cpf=?, email=?, cep=?, logradouro=?, complemento=?, cidade=?, uf=?, observacao=?, status=? WHERE id=?",
+                [nome, sobrenome, genero, idade, telefone, cpf, email, cep, logradouro, complemento, cidade, uf, observacao, status, id]
+            );
+            return result;
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+    
 }
 module.exports = Cliente;

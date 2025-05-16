@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import './paginas/Login/Login.css'
 import axios from 'axios';
 
+
 function MainLogin() {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
@@ -20,12 +21,14 @@ function MainLogin() {
                 const accessToken = response.data.token;
                 
                 localStorage.setItem('token',accessToken);
+              
 
                 navigate('/home')
             }
         }
         catch(error) {
             setMensagem('Email ou senha incorretos')
+  
         }
     }
 
