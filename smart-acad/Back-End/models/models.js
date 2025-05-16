@@ -22,7 +22,7 @@ const Usuarios = {
     login: async(email,senha)=>{
         try{
 
-            const consulta = await Colaboradores.getEmail(email);
+            const consulta = await Usuarios.getEmail(email);
 
             if(consulta.length > 0){
                 //comparar senha

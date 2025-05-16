@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 function MainCadastroContrato() {
 
@@ -7,6 +8,8 @@ function MainCadastroContrato() {
   const [planos, setPlanos] = useState('');
   const [pagamento, setPagamento] = useState('');
 
+
+  const token = localStorage.getItem('token'); //obtem o token salvo
 
   async function cadastrarContrato(event) {
     // Evita que a página seja recarregada ao submeter o formulário
@@ -42,20 +45,25 @@ function MainCadastroContrato() {
 
   }
   async function buscarCliente() {
+
+    console.log(cod)
     
     if (cod) {
 
       try {
-        const resposta = await fetch(`http://localhost:3001/api/listarporid/${cod}`);
+        const resposta = await axios.get(`http://localhost:3001/listarporid/${cod}`, {
+          headers: { 'Authorization': `Bearer ${token}` }
+    });
+
         if (!resposta) {
           alert("Cliente não encontrado.");
         }else{
-          const dados = await resposta.json();
-          setNome(`${dados.nome} `);
+          setNome(resposta.data.nome + " " + resposta.data.sobrenome);
         }
        
       } 
       catch (erro) {
+        console.log(erro);
         alert("Erro ao buscar cliente: " + erro.message);
       }
     }
@@ -84,7 +92,6 @@ function MainCadastroContrato() {
                 </div>
               </div>
 
-              {/* Áreas - Serviços, Planos e Pagamento */}
               <div className="areas">
                 <div className="servicos">
                   <h5>Serviços adicionais</h5>
@@ -100,7 +107,6 @@ function MainCadastroContrato() {
                         id="servicos"
                         name="servicos"
                       >
-                        <option value="" disabled defaultValue></option>
                         <option value="1">Nutrição</option>
                         <option value="2">Personal</option>
                         <option value="3">Musculação</option>
@@ -125,7 +131,6 @@ function MainCadastroContrato() {
                       id="planos"
                       name="planos"
                     >
-                      <option value="" disabled defaultValue></option>
                       <option value="1">Mensal</option>
                       <option value="2">Trimestral</option>
                       <option value="3">Anual</option>
@@ -146,7 +151,6 @@ function MainCadastroContrato() {
                       id="pagamento"
                       name="pagamento"
                     >
-                      <option value="" disabled defaultValue></option>
                       <option value="1">Dinheiro</option>
                       <option value="2">Cartão</option>
                       <option value="3">Pix</option>

@@ -17,7 +17,7 @@ routers.get('/api/listarCliente', clienteController.listarTodos );
 routers.delete('/api/deletarproduto/:id', clienteController.deletarId);
 
 // contrato
-routers.get('/api/listarporid/:id', contratoController.BuscarClientePorId);
+routers.get('/listarporid/:id', contratoController.BuscarClientePorId);
 
 
 
