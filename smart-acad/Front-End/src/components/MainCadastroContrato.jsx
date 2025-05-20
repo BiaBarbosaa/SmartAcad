@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
-import { notificacao, notificacaoErroCliente, notificacaoSucessoCliente } from "./Notificacoes";
+import { notificacao, notificacaoErroCliente, notificacaoSucessoCliente, ErroContrato, ListarCliente } from "./Notificacoes";
 
 function MainCadastroContrato() {
 
@@ -58,15 +58,15 @@ function MainCadastroContrato() {
     });
 
         if (!resposta) {
-          alert("Cliente não encontrado.");
+          ErroContrato()
         }else{
           setNome(resposta.data.nome + " " + resposta.data.sobrenome);
+          ListarCliente()
         }
        
       } 
       catch (erro) {
-        console.log(erro);
-        alert("Erro ao buscar cliente: " + erro.message);
+        ErroContrato()
       }
     }
   }

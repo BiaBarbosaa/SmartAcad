@@ -11,20 +11,7 @@ const Contrato = {
             throw error;
         }
     },
-
-     postcriarContrato: async (cliente_id, plano_id, servico_id, pagamento_id) => {
-        
-        try {
-            return await executeQuery(
-                `INSERT INTO contrato (
-                    cliente_id, plano_id, servico_id, pagamento_id) VALUES (?, ?, ?, ?)`,
-                [cliente_id, plano_id, servico_id, pagamento_id]
-            );
-        } catch (error) {
-            throw error;
-        }
-    },
-
+      
     buscarPlanos : async() =>{
         return await executeQuery('SELECT id, 1, 2, 3 FROM plano');
     },

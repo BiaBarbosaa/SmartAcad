@@ -12,8 +12,6 @@ app.use(cors());//necessario para habilitar comunicação com servidor
 app.use('/api', vereficarToken)
 app.use(routers); //utilize as totas
 
-
-
 PORT = process.env.PORT || 3001
 
 conexao.query("select 1") //selecione uma conexão

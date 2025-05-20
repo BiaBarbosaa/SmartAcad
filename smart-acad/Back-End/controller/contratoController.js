@@ -23,7 +23,6 @@ const ControllerContrato = {
         try {
          
             const {cliente_id, plano_id, servico_id, pagamento_id } = req.body;
-            console.log(req.body)
 
             if (!plano_id || !servico_id || !pagamento_id) {
                 return res.status(400).json({ msg: "Dados inválidos" });
@@ -34,12 +33,14 @@ const ControllerContrato = {
             if (resultado.affectedRows === 0) {
                 return res.status(404).json({ msg: "Contrato não encontrado" });
             }
-
-            res.status(200).json({ msg: "Contrato atualizado com sucesso" });
-        } catch (error) {
+            res.status(200).json({ msg: "Contrato cadastrado com sucesso!" });
+        } 
+        catch (error) {
             res.status(500).json({ mensagem: error.message });
         }
     },
+
+ 
 
     getAllPlanos:async(req,res)=>{
         try{

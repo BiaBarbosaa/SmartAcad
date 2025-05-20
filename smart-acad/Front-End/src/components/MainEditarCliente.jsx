@@ -201,13 +201,14 @@ function MainEditarCliente() {
                                     <button type="submit" className="btn btn-primary botao-editar">
                                         <i className="bi bi-box-arrow-up"></i> Editar cliente
                                     </button>
-                                    <button
+                                    <Link
                                         type="button"
                                         className="btn btn-primary botao-cancelar"
-                                        onClick={() => navigate("/listar-cliente")} 
+                                        to={'/listar-cliente'}
+ 
                                     >
                                         Cancelar
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
 

@@ -15,6 +15,7 @@ routers.patch('/atualizasenha', usuarioController.atualizarSenha);
 routers.post('/cadastroCliente', clienteController.cadastrarNovoCliente);
 routers.get('/api/listarCliente', clienteController.listarTodos );
 routers.delete('/api/deletarproduto/:id', clienteController.deletarId);
+routers.put('/api/atualizar/:id', clienteController.atualizarId);
 
 // contrato
 routers.get('/listarporid/:id', contratoController.BuscarClientePorId);

@@ -39,11 +39,12 @@ const Cliente = {
     },
 
     getClienteById: async (id) => {
+
         try {
-            const [clienteAtualizado] = await executeQuery(
-                "SELECT nome, sobrenome, genero, idade, telefone, cpf, email, cep, logradouro,complemento, cidade, uf, observacao, status FROM cliente WHERE id=?", [id]
+            const cliente = await executeQuery(
+                "SELECT id FROM cliente WHERE id=?", [id]
             );
-            return clienteAtualizado
+            return cliente;
         }
         catch (error) {
             throw error;
@@ -51,12 +52,16 @@ const Cliente = {
     },
 
     putAtualizarCliente: async (nome, sobrenome, genero, idade, telefone, cpf, email, cep, logradouro, complemento, cidade, uf, observacao, status, id) => {
+        
         try {
             const result = await executeQuery(
+                // "UPDATE cliente SET nome=?, sobrenome=?, genero=?, idade=?, telefone=?, cpf=?, email=?, cep=?, logradouro=?, complemento=?, cidade=?, uf=?, observacao=?, status=? WHERE id=?",
                 "UPDATE cliente SET nome=?, sobrenome=?, genero=?, idade=?, telefone=?, cpf=?, email=?, cep=?, logradouro=?, complemento=?, cidade=?, uf=?, observacao=?, status=? WHERE id=?",
-                [nome, sobrenome, genero, idade, telefone, cpf, email, cep, logradouro, complemento, cidade, uf, observacao, status, id]
+                [nome, sobrenome, genero, idade,  telefone, cpf, email, cep, logradouro, complemento, cidade, uf, observacao, status, id]
+                // [nome, sobrenome, genero, idade, telefone, cpf, email, cep, logradouro, complemento, cidade, uf, observacao, status, id]
             );
-            return result;
+            console.log(result);
+            //return result;
         }
         catch (error) {
             throw error;

@@ -36,7 +36,10 @@ const clienteController = {
         try {
             const resultado = await usuarioModel.login(email, senha)
 
+            console.log(resultado);
+
             if (!resultado) {
+                console.log(!resultado)
                 return res.status(401).json({ msg: "Email ou senha incorretos" })
             }
             else {
@@ -44,6 +47,7 @@ const clienteController = {
             }
         }
         catch (error) {
+            console.log(error)
             res.status(500).json({ mensagem: error.message })
 
         }

@@ -65,8 +65,9 @@ const ControllerCliente = {
     },
 
     async atualizarId(req, res) {
-
-        const{nome, sobrenome, genero, idade, telefone, cpf, email, cep, logradouro,complemento, cidade, uf, observacao} = req.body;
+        const status = "inativo";
+        // const{nome, sobrenome, genero, idade, telefone, cpf, email, cep, logradouro,complemento, cidade, uf, observacao} = req.body;
+        const{nome, sobrenome, genero, idade, telefone, cpf, email, cep, logradouro, complemento, cidade, uf, observacao} = req.body;
 
         try {
             if (!req.params.id) {
@@ -75,12 +76,13 @@ const ControllerCliente = {
 
             const cliente = await clienteController.getClienteById(req.params.id);
 
-            if (!cliente) {
-                return res.status(404).json({ mensagem: 'Cliente não encontrado' });
+            if (cliente.length > 0) {
+                await clienteController.putAtualizarCliente(nome, sobrenome, genero, idade,  telefone, cpf, email, cep, logradouro, complemento, cidade, uf, observacao, status, req.params.id);
+                // await clienteController.putAtualizarCliente(nome, sobrenome, genero, idade, telefone, cpf, email, cep, logradouro,complemento, cidade, uf, observacao, req.params.id);
+                res.status(200).json({ mensagem: 'Atualizado com sucesso' });
             }
             else{
-                await clienteController.putAtualizarCliente(nome, sobrenome, genero, idade, telefone, cpf, email, cep, logradouro,complemento, cidade, uf, observacao, req.params.id);
-                res.status(200).json({ mensagem: 'Atualizado com sucesso' });
+                return res.status(404).json({ mensagem: 'Cliente não encontrado' });
             }   
         } catch (error) {
             res.status(500).json({ mensagem: error.message });

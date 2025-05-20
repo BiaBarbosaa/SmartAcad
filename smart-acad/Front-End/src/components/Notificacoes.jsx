@@ -43,3 +43,12 @@ export const notificacaoExcluirErro = (mensagem =
     "Falha ao excluir o cliente") => {
     notificacao('error', mensagem)
 };
+
+export const ErroContrato = (mensagem =
+    "Falha ao encontrar o cliente") => {
+    notificacao('error', mensagem)
+};
+export const ListarCliente = (mensagem =
+    "Cliente encontrado com sucesso!") => {
+    notificacao('success', mensagem)
+};
