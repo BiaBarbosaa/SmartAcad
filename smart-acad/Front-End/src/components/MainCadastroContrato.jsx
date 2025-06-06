@@ -1,13 +1,16 @@
 import axios from "axios";
 import { useState } from "react";
+import { notificacao, notificacaoErroCliente, notificacaoSucessoCliente, ErroContrato, ListarCliente } from "./Notificacoes";
+
 function MainCadastroContrato() {
 
   const [cod, setCod] = useState('');
   const [nome, setNome] = useState('');
-  const [servicos, setServicos] = useState('');
-  const [planos, setPlanos] = useState('');
-  const [pagamento, setPagamento] = useState('');
-  const [status, setStatus] = useState('');
+
+
+  const [servicos, setServicos] = useState('1');
+  const [planos, setPlanos] = useState('1');
+  const [pagamento, setPagamento] = useState('1');
 
 
   const token = localStorage.getItem('token'); //obtem o token salvo
@@ -28,9 +31,12 @@ function MainCadastroContrato() {
     }
   
     contrato = JSON.stringify(contrato);
+
+    
   
     try {
-      let contratos = await fetch('http://localhost:8081/cadastroAluno', {
+      let contratos = await fetch('http://localhost:3001/cadastroContrato', {
+
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -38,17 +44,15 @@ function MainCadastroContrato() {
         body: contrato
       })
       if (contratos.sucesso) {
-        alert(`cliente cadastrado com sucesso`);
+        notificacaoSucessoCliente()
       }
 
     } catch (erro) {
-      alert(`Erro ao cadastrar cliente: ${erro}`);
+      notificacaoErroCliente()
     }
 
   }
   async function buscarCliente() {
-
-    console.log(cod)
     
     if (cod) {
 
@@ -58,15 +62,15 @@ function MainCadastroContrato() {
     });
 
         if (!resposta) {
-          alert("Cliente não encontrado.");
+          ErroContrato()
         }else{
           setNome(resposta.data.nome + " " + resposta.data.sobrenome);
+          ListarCliente()
         }
        
       } 
       catch (erro) {
-        console.log(erro);
-        alert("Erro ao buscar cliente: " + erro.message);
+        ErroContrato()
       }
     }
   }
@@ -120,8 +124,8 @@ function MainCadastroContrato() {
                         value={servicos}
                         onChange={(e) => setServicos(e.target.value)}
                         className="form-control"
-                        id="servicos"
-                        name="servicos"
+                        // id="servicos"
+                        // name="servicos"
                       >
                         <option value="1">Nutrição</option>
                         <option value="2">Personal</option>
@@ -140,12 +144,9 @@ function MainCadastroContrato() {
                     <div className="BBarea-sub-titulo">
                       <label htmlFor="planos" className="form-label">Planos:</label>
                     </div>
-                    <select
-                      value={planos}
-                      onChange={(e) => setPlanos(e.target.value)}
-                      className="form-control"
-                      id="planos"
-                      name="planos"
+                    <select value={planos} onChange={(e) => setPlanos(e.target.value)} className="form-control"
+                      // id="planos"
+                      //name="planos"
                     >
                       <option value="1">Mensal</option>
                       <option value="2">Trimestral</option>
@@ -164,8 +165,8 @@ function MainCadastroContrato() {
                       value={pagamento}
                       onChange={(e) => setPagamento(e.target.value)}
                       className="form-control"
-                      id="pagamento"
-                      name="pagamento"
+                      // id="pagamento"
+                      // name="pagamento"
                     >
                       <option value="1">Dinheiro</option>
                       <option value="2">Cartão</option>

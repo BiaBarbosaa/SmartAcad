@@ -2,7 +2,6 @@
 
 .container-fluid-2 {
     display: flex;
-    font-family: 'Poppins', sans-serif;
     min-height: 100vh;
   }
   
@@ -13,6 +12,8 @@
     justify-content: center;
     background: #ffffff;
     padding: 2rem;
+    font-family: 'Poppins', sans-serif;
+
   }
   
   .image-container {

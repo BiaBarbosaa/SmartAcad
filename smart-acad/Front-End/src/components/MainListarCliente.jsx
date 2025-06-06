@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
+import { notificacao, notificacaoExcluir, notificacaoExcluirErro } from "./Notificacoes";
 
 const MainListarCliente = () => {
     const [clientes, setClientes] = useState([]);
@@ -30,12 +31,13 @@ const MainListarCliente = () => {
     const handleDelete = async (id) => {
         if (window.confirm("Tem certeza que deseja excluir este produto?")) {
             try {
+                notificacaoExcluir()
                 await axios.delete(`http://localhost:3001/api/deletarproduto/${id}`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
                 setClientes(clientes.filter(clientes => clientes.id !== id));
             } catch (error) {
-                alert("Erro ao excluir o produto.");
+                notificacaoExcluirErro()
             }
         }
     };
@@ -80,7 +82,7 @@ const MainListarCliente = () => {
 
                                     <td className="actions">
                                         <Link
-                                            onClick={() => navigate(`/admin/editarproduto/${cliente.id}`)}
+                                            to={`/editar-cliente/${cliente.id}`}
                                             title="Editar"
                                             className="icon-button"
                                         >

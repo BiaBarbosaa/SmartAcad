@@ -3,9 +3,11 @@
   background-color: #ffffff !important; 
  min-height: 100vh; 
 }
+
+
 .BB1formulario{
   /* margin-top: 3%; */
-  background-color: #F3F4F5;
+  background-color: #e2e2e2d2;
   height: 100%;
   display: flex;
   align-items: center;
@@ -30,6 +32,7 @@
 /* ESTRUTURA PRINCIPAL */
 /* ==================== */
 .BBconteudo-forms {
+  font-family: 'Poppins', sans-serif;
   padding: 30px;
   display: flex;
   align-items: center;
