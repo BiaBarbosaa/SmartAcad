@@ -12,14 +12,13 @@ const MainListarCliente = () => {
 
     const token = localStorage.getItem('token'); //obtem o token salvo
 
-    console.log(token);
-
     useEffect(() => {//fica carregando a pagina
-        axios.get('http://localhost:3001/api/listarCliente', {
+        axios.get('http://localhost:3001/api/listarcontrato', {
             headers: { 'Authorization': `Bearer ${token}` }
         })
             .then(response => {
-                setContratos(response.data.sort((a, b) => a.nome.localeCompare(b.nome)));
+                console.log(response.data)
+                setContratos(response.data.sort((a, b) => a.Nome_completo.localeCompare(b.Nome_completo)));
                 setLoading(false);
             })
             .catch(err => {
@@ -32,14 +31,14 @@ const MainListarCliente = () => {
     const handleDelete = async (id) => {
         if (window.confirm("Tem certeza que deseja excluir este produto?")) {
             try {
-              
-                await axios.delete(`http://localhost:3001/api/deletarproduto/${id}`, {
+
+                await axios.delete(`http://localhost:3001/api/deletarcontrato/${id}`, {
                     headers: { 'Authorization': `Bearer ${token}` }
-                    
+
                 });
                 setContratos(contratos.filter(contratos => contratos.id !== id));
             } catch (error) {
-             
+
             }
         }
     };
@@ -51,8 +50,8 @@ const MainListarCliente = () => {
         <main className="BBcor-rosa col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h1 className="h2">Listar contrato</h1>
-                <Link to="/cadastrar-contrato" className="btn btn-danger">
-                    <i className="bi bi-plus-circle me-2"></i>Novo Contrato
+                <Link to="/cadastrar-cliente" className="btn listarcustom">
+                    <i className="bi bi-plus-circle me-2 "></i>Novo Contrato
                 </Link>
             </div>
 
@@ -61,37 +60,35 @@ const MainListarCliente = () => {
                     <table className="custom-table w-100">
                         <thead>
                             <tr>
-                                <th>Código</th>
-                                <th>Nome</th>
-                                <th>Sobrenome</th>
-                                <th>Telefone</th>
-                                <th>Email</th>
-                                <th>CPF</th>
-                                <th>Status</th>
+
+                                <th>ID</th>
+                                <th>Nome Completo</th>
+                                <th>Pagamento</th>
+                                <th>Serviço</th>
+                                <th>Plano</th>
                                 <th>Opções</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {contratos.map((contarto) => (
-                                <tr key={contarto.id}>
-                                    <td>{contarto.id}</td>
-                                    <td>{contarto.nome}</td>
-                                    <td>{contarto.sobrenome}</td>
-                                    <td>{contarto.telefone}</td>
-                                    <td>{contarto.email}</td>
-                                    <td>{contarto.cpf}</td>
-                                    <td>{contarto.status}</td>
+                            {contratos.map((contrato) => (
+                                <tr key={contrato.id}>
+                                    <td>{contrato.ContratoID}</td>
+                                    <td>{contrato.Nome_completo}</td>
+                                    <td>{contrato.Pagamento}</td>
+                                    <td>{contrato.Servico}</td>
+                                    <td>{contrato.Plano}</td>
+
 
                                     <td className="actions">
                                         <Link
-                                            onClick={() => navigate(`/admin/editarproduto/${contarto.id}`)}
+                                            onClick={() => navigate(`/admin/editarproduto/${contrato.id}`)}
                                             title="Editar"
                                             className="icon-button"
                                         >
                                             <i className="bi bi-pencil-square"></i>
                                         </Link>
                                         <button
-                                            onClick={() => handleDelete(contarto.id)}
+                                            onClick={() => handleDelete(contrato.id)}
                                             title="Excluir"
                                             className="icon-button"
                                         >

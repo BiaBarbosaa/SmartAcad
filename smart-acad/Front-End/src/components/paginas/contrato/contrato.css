@@ -14,7 +14,8 @@
   max-width: 1200px; /* Limite máximo de largura */
   margin: 20px auto; /* Centraliza horizontalmente */
   /* Mantenha as outras propriedades existentes */
-  background-color: #e2e2e2d2;
+  background-color: #e2e2e2dd;
+;
   padding: 30px;
   border-radius: 30px;
   border: 1px solid #868A9D;

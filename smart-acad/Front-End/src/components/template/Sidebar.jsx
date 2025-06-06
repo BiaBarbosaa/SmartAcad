@@ -48,7 +48,6 @@ function Sidebar() {
             </li>
             <hr className="my-3" />
 
-            {/* Restante do código mantido igual */}
             <li className="mb-1">
               <button
                 className="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"

@@ -4,9 +4,8 @@ const clienteController = require('../models/clienteModel');
 const ControllerCliente = {
 
     async cadastrarNovoCliente(req, res) { 
-        const status = "ativo";
         try {
-            const { nome, sobrenome, genero, idade, telefone, cpf, email, cep, logradouro, complemento, cidade, uf, observacao} = req.body;
+            const { nome, sobrenome, genero, idade, telefone, cpf, email, cep, logradouro, complemento, cidade, uf, status, observacao} = req.body;
 
             console.log(req.body);
 
@@ -51,23 +50,22 @@ const ControllerCliente = {
                 return res.status(400).json({ msg: "ID inválido" });
             }
     
-            const resultado = await clienteController.deletarProdutoId(id);
+            const resultado = await clienteController.deletarClienteId(id);
     
             if (resultado.affectedRows === 0) { 
-                return res.status(404).json({ msg: "Produto não encontrado" });
+                return res.status(404).json({ msg: "Cliente não encontrado" });
             }
     
-            res.status(200).json({ msg: "Produto deletado com sucesso" });
-        } catch (erro) {
+            res.status(200).json({ msg: "Cliente deletado com sucesso" });
+        } catch (error) {
          
             res.status(500).json({ mensagem: error.message });
         }
     },
 
     async atualizarId(req, res) {
-        const status = "inativo";
-        // const{nome, sobrenome, genero, idade, telefone, cpf, email, cep, logradouro,complemento, cidade, uf, observacao} = req.body;
-        const{nome, sobrenome, genero, idade, telefone, cpf, email, cep, logradouro, complemento, cidade, uf, observacao} = req.body;
+  
+        const{nome, sobrenome, genero, idade, telefone, cpf, email, cep, logradouro, complemento, cidade, uf, observacao, status} = req.body;
 
         try {
             if (!req.params.id) {
@@ -78,7 +76,6 @@ const ControllerCliente = {
 
             if (cliente.length > 0) {
                 await clienteController.putAtualizarCliente(nome, sobrenome, genero, idade,  telefone, cpf, email, cep, logradouro, complemento, cidade, uf, observacao, status, req.params.id);
-                // await clienteController.putAtualizarCliente(nome, sobrenome, genero, idade, telefone, cpf, email, cep, logradouro,complemento, cidade, uf, observacao, req.params.id);
                 res.status(200).json({ mensagem: 'Atualizado com sucesso' });
             }
             else{
@@ -87,7 +84,23 @@ const ControllerCliente = {
         } catch (error) {
             res.status(500).json({ mensagem: error.message });
         }
-    }
+    },
+
+    getClientePorId: async (req, res) => {
+        const { id } = req.params;
+
+        try {
+            const cliente = await clienteController.buscarClientePorId(id);
+
+            if (!cliente) {
+                return res.status(404).json({ mensagem: "Cliente não encontrado" });
+            }
+
+            res.status(200).json(cliente);
+        } catch (error) {
+            res.status(500).json({ mensagem: error.message });
+        }
+    },
 
 }
 

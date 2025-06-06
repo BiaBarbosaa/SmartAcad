@@ -19,8 +19,12 @@ function MainLogin() {
 
             if(response.status === 200) {
                 const accessToken = response.data.token;
+                const nome = response.data.nome;
+                const regra = response.data.regra;
                 
+                localStorage.setItem('regra',regra);
                 localStorage.setItem('token',accessToken);
+                localStorage.setItem('nome',nome);
               
 
                 navigate('/home')
@@ -62,8 +66,7 @@ function MainLogin() {
 
                     <button className="button">Login</button>
                     
-                    <p className="register-link">Não tem uma conta? <Link to="/cadastro">Cadastrar</Link>
-                    </p>
+                    {/* <p className="register-link">Não tem uma conta? <Link to="/cadastro">Cadastrar</Link></p> */}
                     <p className="register-link">Esqueceu sua senha? <Link to="/resetarsenha">Resetar</Link></p>
                 </form>
             </div>

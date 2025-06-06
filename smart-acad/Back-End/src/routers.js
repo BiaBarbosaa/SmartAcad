@@ -14,15 +14,15 @@ routers.patch('/atualizasenha', usuarioController.atualizarSenha);
 // cliente
 routers.post('/cadastroCliente', clienteController.cadastrarNovoCliente);
 routers.get('/api/listarCliente', clienteController.listarTodos );
-routers.delete('/api/deletarproduto/:id', clienteController.deletarId);
-routers.put('/api/atualizar/:id', clienteController.atualizarId);
+routers.delete('/api/deletarcliente/:id', clienteController.deletarId);
+routers.put('/api/atualizarCliente/:id', clienteController.atualizarId);
+routers.get('/api/listarClientePorId/:id', clienteController.getClientePorId);
 
 // contrato
-routers.get('/listarporid/:id', contratoController.BuscarClientePorId);
-routers.get('/getAllPagamento', contratoController.getAllPagamento);
-routers.get('/getAllPlanos', contratoController.getAllPlanos);
-routers.get('getAllServicos', contratoController.getAllServicos);
+routers.get('/api/listarporid/:id', contratoController.BuscarClientePorId);
 routers.post('/cadastroContrato', contratoController.criarContrato);
-
+routers.get('/api/listarcontrato', contratoController.listarTodosContratos);
+routers.delete('/api/deletarcontrato/:id', contratoController.deletarId);
+routers.put('/api/atualizarContrato/:id', contratoController.atualizarContratoId);
 
 module.exports = routers;

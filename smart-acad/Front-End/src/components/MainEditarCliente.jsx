@@ -15,7 +15,7 @@ function MainEditarCliente() {
     async function getCliente() {
 
         try {
-            let consulta = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
+            let consulta = await fetch(`http://localhost:3001/api/listarClientePorId/${id}`)
             let dadosCliente = await consulta.json()
             setNome(dadosCliente.nome)
             setSobrenome(dadosCliente.sobrenome)
@@ -76,19 +76,19 @@ function MainEditarCliente() {
         cliente = JSON.stringify(cliente);
         // enviamos de forma assíncrona para o backend
         try {
-            let cadastro = await fetch('http://localhost:8081/cadastroContrato', {
-                method: 'POST',
+            let cadastro = await fetch('http://localhost:3001/api/atualizarCliente/:id', {
+                method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: cliente
             })
             if (cadastro.sucesso) {
-                alert(`cliente cadastrado com sucesso`);
+                alert(`cliente atualizado com sucesso`);
             }
 
         } catch (erro) {
-            alert(`Erro ao cadastrar cliente: ${erro}`);
+            alert(`Erro ao atualizar cliente: ${erro}`);
         }
 
     }

@@ -50,6 +50,8 @@ function MainHome() {
                 </div>
             </div>
 
+            
+
             <div className="container-graficos">
                 <div className="graficos-superiores">
                     <div className="cartao-grafico">

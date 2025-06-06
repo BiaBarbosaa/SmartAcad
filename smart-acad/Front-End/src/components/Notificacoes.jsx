@@ -33,6 +33,10 @@ export const notificacaoSucessoCliente = (mensagem =
     "Sucesso ao cadastrar o cliente!") => {
     notificacao('success', mensagem, 'bi bi-check')
 };
+export const notificacaoCep = (mensagem =
+    "CEP com número de caracteres inválidos") => {
+    notificacao('warning', mensagem)
+};
 
 export const notificacaoExcluir = (mensagem =
     "Cliente excluido com sucesso!") => {

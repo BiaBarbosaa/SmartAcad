@@ -32,7 +32,7 @@ const MainListarCliente = () => {
         if (window.confirm("Tem certeza que deseja excluir este produto?")) {
             try {
                 notificacaoExcluir()
-                await axios.delete(`http://localhost:3001/api/deletarproduto/${id}`, {
+                await axios.delete(`http://localhost:3001/api/deletarcliente/${id}`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
                 setClientes(clientes.filter(clientes => clientes.id !== id));
@@ -49,8 +49,8 @@ const MainListarCliente = () => {
         <main className="BBcor-rosa col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h1 className="h2">Listar cliente</h1>
-                <Link to="/cadastrar-cliente" className="btn btn-danger">
-                    <i className="bi bi-plus-circle me-2"></i>Novo Cliente
+                <Link to="/cadastrar-cliente" className="btn listarcustom">
+                    <i className="bi bi-plus-circle me-2 "></i>Novo Cliente
                 </Link>
             </div>
 
@@ -59,7 +59,7 @@ const MainListarCliente = () => {
                     <table className="custom-table w-100">
                         <thead>
                             <tr>
-                                <th>Código</th>
+                                <th>ID</th>
                                 <th>Nome</th>
                                 <th>Sobrenome</th>
                                 <th>Telefone</th>

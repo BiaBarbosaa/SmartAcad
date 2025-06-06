@@ -1,137 +1,271 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const ResetSenha = () => {
-const navigate = useNavigate(); 
+  const navigate = useNavigate(); 
     
-    const [email, setEmail] = useState("");
-    const [novaSenha, setNovaSenha] = useState("");
-    const [confirmarSenha, setConfirmarSenha] = useState("");
-    const [mostrarFormulario, setMostrarFormulario] = useState(false);
-    
-    const handleResetSenha = async () => {
-        if (!email) {
-            alert("Por favor, insira seu email.");
-            return;
-        }
-
-        try {
-            const response = await axios.post("http://localhost:3001/atualiza", {email});
-            
-            if (response.status === 200) {
-                setMostrarFormulario(true);
-            } else if (response.status === 404) {
-                alert("Email não encontrado. Por favor, verifique o email digitado.");
-            }
-        } catch (error) {
-            alert("Erro ao resetar a senha");
-        }
+  const [email, setEmail] = useState("");
+  const [novaSenha, setNovaSenha] = useState("");
+  const [confirmarSenha, setConfirmarSenha] = useState("");
+  const [mostrarFormulario, setMostrarFormulario] = useState(false);
+  const [error, setError] = useState("");
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    // Verificar se é mobile ao montar o componente e ao redimensionar a janela
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 768);
     };
     
-    const validarSenhas = () => {
-        if (!novaSenha || !confirmarSenha) {
-            alert("Todos os campos são obrigatórios");
-            return false;
-        }
-        
-        if (novaSenha !== confirmarSenha) {
-            alert("As senhas não coincidem");
-            return false;
-        }
-        
-        return true;
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+    
+    return () => {
+      window.removeEventListener('resize', checkIsMobile);
     };
+  }, []);
+  
+  const handleResetSenha = async () => {
+    if (!email) {
+      setError("Por favor, insira seu email.");
+      return;
+    }
 
-    const handleTrocarSenha = async () => {
-        if (!validarSenhas()) {
-            return;
-        }
+    try {
+      setError("");
+      const response = await axios.post("http://localhost:3001/atualiza", {email});
+      
+      if (response.status === 200) {
+        setMostrarFormulario(true);
+      } else if (response.status === 404) {
+        setError("Email não encontrado. Por favor, verifique o email digitado.");
+      }
+    } catch (error) {
+      setError("Erro ao resetar a senha. Tente novamente mais tarde.");
+    }
+  };
+  
+  const validarSenhas = () => {
+    if (!novaSenha || !confirmarSenha) {
+      setError("Todos os campos são obrigatórios");
+      return false;
+    }
+    
+    if (novaSenha.length < 6) {
+      setError("A senha deve ter pelo menos 6 caracteres");
+      return false;
+    }
+    
+    if (novaSenha !== confirmarSenha) {
+      setError("As senhas não coincidem");
+      return false;
+    }
+    
+    return true;
+  };
 
-        try {
-            const response = await axios.patch("http://localhost:3001/atualizasenha", {
-                email,
-                senha: novaSenha,
-            });
+  const handleTrocarSenha = async () => {
+    if (!validarSenhas()) {
+      return;
+    }
 
-            if (response.status === 200) {
-                alert("Senha trocada com sucesso.");
-                navigate("/login"); 
-            } else {
-                alert("Erro ao trocar a senha.");
-            }
-        } catch (error) {
-            alert("Erro ao trocar a senha");
-        }
-    };
+    try {
+      setError("");
+      const response = await axios.patch("http://localhost:3001/atualizasenha", {
+        email,
+        senha: novaSenha,
+      });
 
-    return (
-        <div style={styles.container}>
-            <div style={styles.card}>
-                <h4 className="text-center mb-3">Redefinir Senha</h4>
+      if (response.status === 200) {
+        alert("Senha trocada com sucesso!");
+        navigate("/login"); 
+      } else {
+        setError("Erro ao trocar a senha.");
+      }
+    } catch (error) {
+      setError("Erro ao trocar a senha. Tente novamente mais tarde.");
+    }
+  };
 
+  return (
+    <div style={styles.container}>
+      {!isMobile && (
+        <div style={styles.imageContainer}></div>
+      )}
+      
+      <div style={styles.formContainer}>
+        <div style={styles.formContent}>
+          <h1 style={styles.title}>Redefinir Senha</h1>
+          <p style={styles.subtitle}>Insira seu email para redefinir sua senha</p>
+          
+          {error && <div style={styles.errorMessage}>{error}</div>}
+          
+          <div style={styles.inputGroup}>
+            <input
+              type="email"
+              style={styles.input}
+              placeholder="Digite seu email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              onFocus={(e) => e.target.style.borderColor = '#ff4d4d'}
+              onBlur={(e) => e.target.style.borderColor = '#ddd'}
+            />
+          </div>
+
+          {!mostrarFormulario && (
+            <button style={styles.button} onClick={handleResetSenha}>
+              Resetar senha
+            </button>
+          )}
+
+          {mostrarFormulario && (
+            <>
+              <div style={styles.inputGroup}>
                 <input
-                    type="email"
-                    className="form-control mb-2"
-                    placeholder="Digite seu email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                  type="password"
+                  style={styles.input}
+                  placeholder="Nova Senha"
+                  value={novaSenha}
+                  onChange={(e) => setNovaSenha(e.target.value)}
+                  onFocus={(e) => e.target.style.borderColor = '#ff4d4d'}
+                  onBlur={(e) => e.target.style.borderColor = '#ddd'}
                 />
-
-                {!mostrarFormulario && (
-                    <button className="btn btn-danger w-100 mb-2" onClick={handleResetSenha}>
-                        Resetar Senha
-                    </button>
-                )}
-
-                {mostrarFormulario && (
-                    <>
-                        <input
-                            type="password"
-                            className="form-control mb-2"
-                            placeholder="Nova Senha"
-                            value={novaSenha}
-                            onChange={(e) => setNovaSenha(e.target.value)}
-                        />
-                        <input
-                            type="password"
-                            className="form-control mb-2"
-                            placeholder="Confirmar Senha"
-                            value={confirmarSenha}
-                            onChange={(e) => setConfirmarSenha(e.target.value)}
-                        />
-                        <button className="btn btn-danger w-100" onClick={handleTrocarSenha}>
-                            Trocar Senha
-                        </button>
-                    </>
-                )}
-            </div>
+              </div>
+              
+              <div style={styles.inputGroup}>
+                <input
+                  type="password"
+                  style={styles.input}
+                  placeholder="Confirmar Nova Senha"
+                  value={confirmarSenha}
+                  onChange={(e) => setConfirmarSenha(e.target.value)}
+                  onFocus={(e) => e.target.style.borderColor = '#ff4d4d'}
+                  onBlur={(e) => e.target.style.borderColor = '#ddd'}
+                />
+              </div>
+              
+              <button style={styles.button} onClick={handleTrocarSenha}>
+                Trocar Senha
+              </button>
+            </>
+          )}
+          
+          <div style={styles.backLink}>
+            <a href="/login" style={styles.link}>
+              ← Voltar para o login
+            </a>
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
-
 const styles = {
+  container: {
+    display: "flex",
+    fontFamily: "'Poppins', sans-serif",
+    height: "100vh",
+    width: "100vw",
+    overflow: "hidden",
+  },
+  imageContainer: {
+    flex: 1,
+    backgroundImage: "url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop')",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    position: "relative",
+  },
+  formContainer: {
+    flex: 1,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    background: "#ffffff",
+    padding: "2rem",
+  },
+  formContent: {
+    width: "100%",
+    maxWidth: "400px",
+    padding: "20px",
+  },
+  title: {
+    fontSize: "2rem",
+    marginBottom: "0.5rem",
+    color: "#1a1a1a",
+    fontWeight: "600",
+  },
+  subtitle: {
+    color: "#666",
+    marginBottom: "2rem",
+    fontSize: "0.95rem",
+  },
+  inputGroup: {
+    marginBottom: "1.5rem",
+  },
+  input: {
+    width: "100%",
+    padding: "14px",
+    border: "1px solid #ddd",
+    borderRadius: "8px",
+    fontSize: "1rem",
+    transition: "border-color 0.3s",
+    boxSizing: "border-box",
+  },
+  button: {
+    width: "100%",
+    padding: "14px",
+    background: "#ff4d4d",
+    color: "white",
+    border: "none",
+    borderRadius: "8px",
+    fontSize: "1rem",
+    fontWeight: "600",
+    cursor: "pointer",
+    transition: "all 0.3s",
+    marginBottom: "1rem",
+  },
+  backLink: {
+    textAlign: "center",
+    marginTop: "1.5rem",
+    color: "#666",
+    fontSize: "0.9rem",
+  },
+  link: {
+    color: "#ff4d4d",
+    textDecoration: "none",
+    fontWeight: "500",
+    display: "inline-flex",
+    alignItems: "center",
+    gap: "5px",
+    transition: "all 0.3s",
+  },
+  errorMessage: {
+    color: "#ff4444",
+    background: "#ffecec",
+    padding: "12px",
+    borderRadius: "8px",
+    marginBottom: "1.5rem",
+    textAlign: "center",
+    fontSize: "0.9rem",
+  },
+  "@media (max-width: 768px)": {
     container: {
-        position: "absolute",
-        top: "50%",
-        left: "50%",
-        transform: "translate(-50%, -50%)",
-        width: "100vw",
-        height: "100vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "#f8f9fa",
+      flexDirection: "column",
     },
-    card: {
-        width: "320px",
-        padding: "20px",
-        backgroundColor: "white",
-        borderRadius: "8px",
-        boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
-        textAlign: "center",
+    formContainer: {
+      width: "100%",
+      padding: "1rem",
     },
+    formContent: {
+      padding: "10px",
+    },
+    title: {
+      fontSize: "1.8rem",
+    },
+  },
 };
 
 export default ResetSenha;

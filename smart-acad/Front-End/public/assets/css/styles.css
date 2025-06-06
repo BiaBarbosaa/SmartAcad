@@ -158,21 +158,33 @@ textarea.form-control:focus {
 }
 
 .nav-custom {
-  background-color: #f0f2f5;
+  background-color: #FF3131;
   border-bottom: 1px solid #dee2e6;
 }
 
 .logo-brand {
-  background-color: #e9ecef;
-  border-radius: 20px;
+  background-color: #e9ecef5b;
+  border-radius: 25px;
   padding: 0.25rem 0.75rem;
   transition: all 0.3s ease;
+}
+
+.logo-brand span{
+  color: #f0f0f0 !important;
+}
+
+.logo-brand i{
+  color: #f0f0f0 !important;
+  margin-bottom: 12px;
 }
 
 @media (min-width: 768px) {
   .logo-brand {
     padding: 0.4rem 1.2rem;
   }
+}
+.nav-botao{
+  color: #f0f0f0;
 }
 
 .search-container {
@@ -231,7 +243,7 @@ background-color: transparent !important;
 }
 
 .custom-table thead {
-  background-color: #e24a4a;
+  background-color: #ff3131ee;
   color: white;
 }
 .custom-table th{
@@ -269,5 +281,14 @@ background-color: transparent !important;
 }
 
 .icon-button:hover {
-  color: #ff5c5c;
+  color: #FF3131;
+}
+
+.listarcustom {
+  background-color: #FF3131;
+ color: #f0f0f0;
+}
+.listarcustom:hover {
+  background-color: #e22727e5;
+ color: #f0f0f0;
 }

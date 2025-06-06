@@ -23,7 +23,7 @@ function MainCadastro() {
                 regra
             });
 
-            if(response.status === 200) {
+            if(response.status === 201) {
                 alert('Cadastro realizado com sucesso');
                 navigate('/login');
               
@@ -93,7 +93,7 @@ function MainCadastro() {
 
                     <button className="button">Cadastrar</button>
                     
-                    <p className="register-link">Já tem uma conta? <Link to="/login">Login</Link></p>
+                    {/* <p className="register-link">Já tem uma conta? <Link to="/login">Login</Link></p> */}
                 </form>
             </div>
             <div className="image-container"></div>

@@ -61,7 +61,7 @@ html {
     min-height: 100vh;
   }
 }
-/*sidebar*/
+
 .sidebar-home-link {
   color: var(--bs-dark);
   display: flex;

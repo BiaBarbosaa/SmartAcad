@@ -48,7 +48,7 @@ const Usuarios = {
 },
 
     getEmail: async(email)=>{
-       return await executeQuery('SELECT id, email, senha, regra FROM usuarios WHERE email=?', [email])
+       return await executeQuery('SELECT id, email, nome, senha, regra FROM usuarios WHERE email=?', [email])
     },
      
      resetarSenha: async(email,senha) =>{

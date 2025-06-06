@@ -1,17 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import avatar from "../../img/avatar.png"
 
 function Navbar() {
+
+  const [nome, setNome] = useState('')
+
+  useEffect(() => {
+    name()
+  }, [])
+
+async function name() {
+  let regraSalvo = localStorage.getItem('regra')
+  setNome(regraSalvo)
+}
+
   return (
     <header className="navbar navbar-expand-md nav-custom sticky-top p-2 shadow-sm">
       <div className="container-fluid">
         <div className="d-flex align-items-center order-1">
           <button
-            className="btn btn-link text-dark d-md-none me-2"
+            className="btn btn-link nav-botao d-md-none me-2"
             data-bs-toggle="offcanvas"
             data-bs-target="#sidebarMenu"
           >
-            <i className="bi bi-list h4"></i>
+            <i className="bi bi-list h4 "></i>
           </button>
 
           <a href="/home" className="logo-brand d-flex align-items-center text-decoration-none">
@@ -26,7 +39,7 @@ function Navbar() {
           data-bs-toggle="collapse"
           data-bs-target="#navbarContent"
         >
-          <i className="bi bi-three-dots-vertical"></i>
+          <i className="bi bi-three-dots-vertical nav-botao"></i>
         </button>
 
         <div className="collapse navbar-collapse order-2 order-md-2" id="navbarContent">
@@ -40,13 +53,13 @@ function Navbar() {
                 style={{ outline: "none", boxShadow: "none" }}
               >
                 <img
-                  src="https://ionicframework.com/docs/img/demos/avatar.svg"
+                  src={avatar}
                   alt="avatar"
                   className="rounded-circle me-2"
-                  style={{ width: "32px", height: "32px", objectFit: "cover" }}
+                  style={{ width: "50px", height: "50px", objectFit: "cover" }}
                 />
-                <span className="d-none d-md-inline">João Silva</span>
-                <i className="bi bi-caret-down ms-2"></i>
+                <span className="d-none d-md-inline nav-botao">{nome}</span>
+                <i className="bi bi-caret-down ms-2 nav-botao"></i>
               </button>
 
               <ul className="dropdown-menu dropdown-menu-end mt-2 shadow">

@@ -28,7 +28,7 @@ const Cliente = {
         );
     },
 
-    deletarProdutoId: async (id) => {
+    deletarClienteId: async (id) => {
         try {
             return await executeQuery(
                 "DELETE FROM cliente WHERE id = ?", [id]
@@ -66,7 +66,16 @@ const Cliente = {
         catch (error) {
             throw error;
         }
-    }
+    },
+    buscarClientePorId: async (id) => {
+        try {
+            const [cliente] = await executeQuery('SELECT nome, sobrenome, genero, idade, telefone, cpf, email, cep, logradouro, complemento, cidade, uf, observacao, status FROM Cliente WHERE id = ?', [id]);
+            return cliente;
+        }
+        catch (error) {
+            throw error;
+        }
+    },
     
 }
 module.exports = Cliente;
