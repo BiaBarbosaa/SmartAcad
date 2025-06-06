@@ -7,6 +7,7 @@ function MainCadastroContrato() {
   const [servicos, setServicos] = useState('');
   const [planos, setPlanos] = useState('');
   const [pagamento, setPagamento] = useState('');
+  const [status, setStatus] = useState('');
 
 
   const token = localStorage.getItem('token'); //obtem o token salvo
@@ -22,7 +23,8 @@ function MainCadastroContrato() {
       nome: nome,
       servicos: servicos,
       planos: planos,
-      pagamento: pagamento
+      pagamento: pagamento,
+      status: status
     }
   
     contrato = JSON.stringify(contrato);
@@ -85,11 +87,25 @@ function MainCadastroContrato() {
                     <label htmlFor="cod" className="form-label">Código do cliente:</label>
                     <input value={cod} onBlur={(e) => buscarCliente(e.target.value)} onChange={(e) => setCod(e.target.value)} type="text" className="form-control" id="cod" name="cod" />
                   </div>
-                  <div className="col-md-10">
+                  <div className="col-md-8">
                     <label htmlFor="nome" className="form-label">Nome completo:</label>
                     <input value={nome} onChange={(e) => setNome(e.target.value)} type="text" className="form-control" id="nome" name="nome" />
                   </div>
+                  <div className="col-md-2 ">
+                                <label htmlFor="status" className="form-label">Status:</label>
+                                <select
+                                    value={status}
+                                    onChange={(e) => setStatus(e.target.value)}
+                                    className="form-control"
+                                    id="status"
+                                    name="status"
+                                >
+                                    <option value="ativo">Ativo</option>
+                                    <option value="inativo">Inativo</option>
+                                </select>
+                            </div>
                 </div>
+                
               </div>
 
               <div className="areas">

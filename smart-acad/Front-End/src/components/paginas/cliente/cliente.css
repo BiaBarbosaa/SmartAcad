@@ -1,7 +1,7 @@
 
 .main-fundo{
-  background-color: #ffffff !important; /* #E5E6E9 com 19% de transparência */
- min-height: 100vh; /* Use isso se precisar de altura mínima */
+  background-color: #ffffff !important; 
+ min-height: 100vh; 
 }
 .BB1formulario{
   /* margin-top: 3%; */
@@ -17,7 +17,7 @@
   border-bottom: 1px solid #d1d4d7;
   padding-bottom: 10px;
   display: inline-block;
-  width: 100%; /* Força a largura total */
+  width: 100%; 
 }
 .BBconteudo-forms{
   padding: 30px;
@@ -48,9 +48,7 @@
   }
 }
 
-/* ==================== */
 /* FORMULÁRIO RESPONSIVO */
-/* ==================== */
 @media (min-width: 768px) {
   .BBconteudo-forms .col-1:nth-child(3) { /* Gênero */
     padding-right: 10px;
@@ -71,9 +69,7 @@
   }
 }
 
-/* ==================== */
 /* BOTÕES PRINCIPAIS */
-/* ==================== */
 .container-botao {
   display: flex;
   justify-content: flex-start;
@@ -153,9 +149,7 @@
   border-color: #F70000 !important;
 }
 
-/* ==================== */
 /* RESPONSIVIDADE BOTÕES */
-/* ==================== */
 @media (max-width: 768px) {
   .container-botao {
     flex-direction: row;
@@ -176,21 +170,18 @@
     gap: 8px;
   }
 }
-/* Ajuste fino para campos Gênero e Idade */
 @media (min-width: 768px) {
   .BBconteudo-forms .col-1:nth-child(3) { /* Gênero */
-    padding-right: 8px;  /* Reduzido de 10px */
-    margin-right: 4px;   /* Adicionado */
+    padding-right: 8px;  
+    margin-right: 4px;  
   }
   .BBconteudo-forms .col-1:nth-child(4) { /* Idade */
-    padding-right: 8px;  /* Reduzido de 15px */
+    padding-right: 8px;  
   }
 }
 
 
-/* ==================== */
 /* COMPONENTES ADICIONAIS */
-/* ==================== */
 .container-btn {
   width: 20%;
 }

@@ -16,6 +16,7 @@ function MainCadastroCliente() {
     const [genero, setGenero] = useState('');
     const [observacao, setObservacao] = useState('');
     const [telefone, setTelefone] = useState('');
+    const [status, setStatus] = useState('');
 
 
 
@@ -38,7 +39,8 @@ function MainCadastroCliente() {
             email: email,
             genero: genero,
             observacao: observacao,
-            telefone: telefone
+            telefone: telefone,
+            status: status
         }
         // transformou o objeto aluno em formato de string JSON
         cliente = JSON.stringify(cliente);
@@ -54,7 +56,7 @@ function MainCadastroCliente() {
 
             console.log(cadastro)
             if (cadastro.status === 201) {
-                alert(`cliente cadastrado com sucesso`);                
+                alert(`cliente cadastrado com sucesso`);
             }
 
 
@@ -90,15 +92,15 @@ function MainCadastroCliente() {
     return (
         <>
 
-  <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4 container-principal main-fundo">
-            <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 borda-inferior">
-                <h2 className="">Cadastro de clientes</h2>
-            </div>
+            <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4 container-principal main-fundo">
+                <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 borda-inferior">
+                    <h2 className="">Cadastro de clientes</h2>
+                </div>
                 <div className="BB1formulario">
                     <div className="BBconteudo-forms">
-                   
+
                         <form onSubmit={cadastrarCliente} className="row g-3">
-                           
+
                             <h5>Dados pessoais</h5>
                             <div className="col-md-4">
                                 <label htmlFor="nome" className="form-label">Nome:</label>
@@ -108,23 +110,24 @@ function MainCadastroCliente() {
                                 <label htmlFor="inputPassword4" className="form-label">Sobrenome:</label>
                                 <input value={sobrenome} onChange={(e) => setSobrenome(e.target.value)} type="text" className="form-control" id="sobrenome" name="sobrenome" />
                             </div>
-                            <div className="col-1 me-2"> 
-                                <label htmlFor="genero" className="form-label">Gênero:</label>                                <select
-                                    value={genero || ''} 
+                            <div className="col-1 me-2">
+                                <label htmlFor="genero" className="form-label">Gênero:</label>
+                                <select
+                                    value={genero}
                                     onChange={(e) => setGenero(e.target.value)}
                                     className="form-control"
                                     id="genero"
                                     name="genero"
                                 >
-                                    <option value="" disabled></option>
-                                    <option value="F">F</option>
-                                    <option value="M">M</option>
+                                    <option value="1">F</option>
+                                    <option value="2">M</option>
+
                                 </select>
                             </div>
 
-                            <div className="col-1 me-2">  
-                            <label htmlFor="idade" className="form-label">Idade:</label>
-                            <input value={idade} onChange={(e) => setIdade(e.target.value)} type="text" className="form-control" id="idade" name="idade" />
+                            <div className="col-1 me-2">
+                                <label htmlFor="idade" className="form-label">Idade:</label>
+                                <input value={idade} onChange={(e) => setIdade(e.target.value)} type="text" className="form-control" id="idade" name="idade" />
                             </div>
                             <div className="col-md-3">
                                 <label htmlFor="inputCity" className="form-label">Telefone:</label>
@@ -158,6 +161,20 @@ function MainCadastroCliente() {
                             <div className="col-md-1">
                                 <label htmlFor="uf" className="form-label">UF:</label>
                                 <input value={uf} onChange={(e) => setUf(e.target.value)} type="text" className="form-control" id="uf" name="uf" />
+                            </div>
+                            <div className="col-2 me-2">
+                                <label htmlFor="status" className="form-label">Status:</label>
+                                <select
+                                    value={status}
+                                    onChange={(e) => setStatus(e.target.value)}
+                                    className="form-control"
+                                    id="status"
+                                    name="status"
+                                    style={{ width: 'auto' }}
+                                >
+                                    <option value="ativo">Ativo</option>
+                                    <option value="inativo">Inativo</option>
+                                </select>
                             </div>
                             <div className="col-md-12">
                                 <label htmlFor="observacao" className="form-label">Observação:</label>
