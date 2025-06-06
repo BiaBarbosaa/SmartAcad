@@ -32,8 +32,6 @@ const ControllerContrato = {
                 status
             }
 
-
-
             if (!planos || !servicos || !pagamento) {
                 return res.status(400).json({ msg: "Dados inválidos" });
             }
