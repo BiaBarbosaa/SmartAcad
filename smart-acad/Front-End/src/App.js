@@ -28,7 +28,7 @@ function App() {
 
           <Route path="/listar-contrato" element={<ListarContrato/>} />
           <Route path="/cadastrar-contrato" element={<CadastrarContrato/>} />
-          <Route path="/editar-contrato" element={<EditarContrato/>} />
+          <Route path="/editar-contrato/:id" element={<EditarContrato/>} />
           <Route path="/login" element={<Login/>} />
           <Route path="/cadastro" element={<Cadastro/>} />
           

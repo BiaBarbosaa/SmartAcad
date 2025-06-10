@@ -80,6 +80,15 @@ const Contrato = {
             throw error;
         }
     },     
+    buscarContratoPorId: async (id) => {
+        try {
+            const [contrato] = await executeQuery('SELECT cliente_id, plano_id, servico_id, pagamento_id, status FROM contrato WHERE id = ?', [id]);
+            return contrato;
+        }
+        catch (error) {
+            throw error;
+        }
+    },
     
 }
 module.exports = Contrato;

@@ -2,7 +2,7 @@
 .BBcontrato-main {
   padding: 0 !important;
   margin: 0 !important;
-  width: 100%;
+
 }
 .main-fundo{
   background-color:#ffffff; /* #E5E6E9 com 19% de transparência */
@@ -10,16 +10,12 @@
 }
 /* Estilos gerais para o formulário */
 .BB2formulario {
-  width: 100%; /* Ou um valor fixo como 800px se preferir */
-  max-width: 1200px; /* Limite máximo de largura */
-  margin: 20px auto; /* Centraliza horizontalmente */
-  /* Mantenha as outras propriedades existentes */
   background-color: #e2e2e2dd;
-;
-  padding: 30px;
+  font-family: 'Poppins', sans-serif;
+  align-items: center;
+  justify-content: center;
   border-radius: 30px;
   border: 1px solid #868A9D;
-  font-family: 'Poppins', sans-serif;
 }
 .BBlinha {
   border-bottom: 1px solid #d1d4d7;

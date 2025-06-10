@@ -24,5 +24,7 @@ routers.post('/cadastroContrato', contratoController.criarContrato);
 routers.get('/api/listarcontrato', contratoController.listarTodosContratos);
 routers.delete('/api/deletarcontrato/:id', contratoController.deletarId);
 routers.put('/api/atualizarContrato/:id', contratoController.atualizarContratoId);
+routers.get('/api/listarContratoPorId/:id', contratoController.getContratoPorId);
+
 
 module.exports = routers;

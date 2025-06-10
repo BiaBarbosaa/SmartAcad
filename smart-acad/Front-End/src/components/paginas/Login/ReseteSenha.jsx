@@ -13,7 +13,6 @@ const ResetSenha = () => {
   const [isMobile, setIsMobile] = useState(false);
   
   useEffect(() => {
-    // Verificar se é mobile ao montar o componente e ao redimensionar a janela
     const checkIsMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };

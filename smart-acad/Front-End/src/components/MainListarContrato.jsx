@@ -62,7 +62,7 @@ const MainListarCliente = () => {
                             <tr>
 
                                 <th>ID</th>
-                                <th>Nome Completo</th>
+                                <th>Cliente</th>
                                 <th>Pagamento</th>
                                 <th>Serviço</th>
                                 <th>Plano</th>
@@ -81,7 +81,7 @@ const MainListarCliente = () => {
 
                                     <td className="actions">
                                         <Link
-                                            onClick={() => navigate(`/admin/editarproduto/${contrato.id}`)}
+                                            to={`/editar-contrato/${contrato.ContratoID}`}
                                             title="Editar"
                                             className="icon-button"
                                         >

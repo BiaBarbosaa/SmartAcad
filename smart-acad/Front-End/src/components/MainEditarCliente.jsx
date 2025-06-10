@@ -42,6 +42,7 @@ function MainEditarCliente() {
     const [logradouro, setLogradouro] = useState('');
     const [complemento, setComplemento] = useState('');
     const [uf, setUf] = useState('');
+    const [status, setStatus] = useState('1');
     const [idade, setIdade] = useState('');
     const [cpf, setCpf] = useState('');
     const [email, setEmail] = useState('');
@@ -65,6 +66,7 @@ function MainEditarCliente() {
             logradouro: logradouro,
             complemento: complemento,
             uf: uf,
+            status: status,
             idade: idade,
             cpf: cpf,
             email: email,
@@ -118,7 +120,7 @@ function MainEditarCliente() {
 
             <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4 main-fundo">
                 <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h2 className="">Editar cadastro de clientes</h2>
+                    <h2 className="">Editar clientes</h2>
                 </div>
 
                 <div className="BB1formulario">
@@ -127,75 +129,98 @@ function MainEditarCliente() {
                         <form onSubmit={editarCliente} className="row g-3">
                             <h5>Dados pessoais</h5>
                             <div className="col-md-4">
-                                <label htmlFor="nome" className="form-label">Nome:</label>
-                                <input value={nome} onChange={(e) => setNome(e.target.value)} type="text" className="form-control" id="nome" name="nome" />
-                            </div>
-                            <div className="col-md-5">
-                                <label htmlFor="inputPassword4" className="form-label">Sobrenome:</label>
-                                <input value={sobrenome} onChange={(e) => setSobrenome(e.target.value)} type="text" className="form-control" id="sobrenome" name="sobrenome" />
-                            </div>
-                            <div className="col-1 me-2">  
-                                <label htmlFor="genero" className="form-label">Gênero:</label>                                <select
-                                    value={genero || ''} 
-                                    onChange={(e) => setGenero(e.target.value)}
-                                    className="form-control"
-                                    id="genero"
-                                    name="genero"
-                                >
-                                    <option value="" disabled></option>
-                                    <option value="F">F</option>
-                                    <option value="M">M</option>
-                                </select>
-                            </div>
+                            <label htmlFor="nome" className="form-label">Nome:</label>
+                            <input value={nome} onChange={(e) => setNome(e.target.value)}
+                                type="text" className="form-control" id="nome" required />
+                        </div>
 
-                            <div className="col-1 me-2">  
+                        <div className="col-md-5">
+                            <label htmlFor="sobrenome" className="form-label">Sobrenome:</label>
+                            <input value={sobrenome} onChange={(e) => setSobrenome(e.target.value)}
+                                type="text" className="form-control" id="sobrenome" required />
+                        </div>
+
+                        <div className="col-md-1">
+                            <label htmlFor="genero" className="form-label">Gênero:</label>
+                            <select value={genero} onChange={(e) => setGenero(e.target.value)}
+                                className="form-control" id="genero" required>
+                                <option value="" disabled></option>
+                                <option value="F">F</option>
+                                <option value="M">M</option>
+                            </select>
+                        </div>
+
+                        <div className="col-md-2">
                             <label htmlFor="idade" className="form-label">Idade:</label>
-                            <input value={idade} onChange={(e) => setIdade(e.target.value)} type="text" className="form-control" id="idade" name="idade" />
-                            </div>
-                            <div className="col-md-3">
-                                <label htmlFor="inputCity" className="form-label">Telefone:</label>
-                                <input value={telefone} onChange={(e) => setTelefone(e.target.value)} type="text" className="form-control" id="inputCity" />
-                            </div>
-                            <div className="col-3">
-                                <label htmlFor="cpf" className="form-label">CPF:</label>
-                                <input value={cpf} onChange={(e) => setCpf(e.target.value)} type="text" className="form-control" id="cpf" name="cpf" placeholder="" />
-                            </div>
-                            <div className="col-md-6">
-                                <label htmlFor="email" className="form-label">Email:</label>
-                                <input value={email} onChange={(e) => setEmail(e.target.value)} type="text" className="form-control" id="email" name="email" />
-                            </div>
-                            <h5>Endereço</h5>
-                            <div className="col-md-2">
-                                <label htmlFor="cep" className="form-label">CEP:</label>
-                                <input value={cep} onBlur={(e) => chamarCep(e.target.value)} onChange={(e) => setCep(e.target.value)} type="number" className="form-control" id="cep" name="cep" maxLength={8} />
-                            </div>
-                            <div className="col-md-6">
-                                <label htmlFor="logradouro" className="form-label">Endereço:</label>
-                                <input value={logradouro} onChange={(e) => setLogradouro(e.target.value)} type="text" className="form-control" id="logradouro" name="logradouro" />
-                            </div>
-                            <div className="col-md-4">
-                                <label htmlFor="complemento" className="form-label">Complemento:</label>
-                                <input value={complemento} onChange={(e) => setComplemento(e.target.value)} type="text" className="form-control" id="complemento" name="complemento" />
-                            </div>
-                            <div className="col-md-3">
-                                <label htmlFor="cidade" className="form-label">Cidade:</label>
-                                <input value={cidade} onChange={(e) => setCidade(e.target.value)} type="text" className="form-control" id="cidade" name="cidade" />
-                            </div>
-                            <div className="col-md-1">
-                                <label htmlFor="uf" className="form-label">UF:</label>
-                                <input value={uf} onChange={(e) => setUf(e.target.value)} type="text" className="form-control" id="uf" name="uf" />
-                            </div>
-                            <div className="col-md-12">
-                                <label htmlFor="observacao" className="form-label">Observação:</label>
-                                <textarea
-                                    value={observacao}
-                                    onChange={(e) => setObservacao(e.target.value)}
-                                    className="form-control"
-                                    id="observacao"
-                                    name="observacao"
-                                    rows="4"
-                                ></textarea>
-                            </div>
+                            <input value={idade} onChange={(e) => setIdade(e.target.value)}
+                                type="number" className="form-control" id="idade" required />
+                        </div>
+
+                        <div className="col-md-3">
+                            <label htmlFor="telefone" className="form-label">Telefone:</label>
+                            <input value={telefone} onChange={(e) => setTelefone(e.target.value)}
+                                type="tel" className="form-control" id="telefone" required />
+                        </div>
+
+                        <div className="col-md-3 col-6">
+                            <label htmlFor="cpf" className="form-label">CPF:</label>
+                            <input value={cpf} onChange={(e) => setCpf(e.target.value)}
+                                type="text" className="form-control" id="cpf" required />
+                        </div>
+
+                        <div className="col-md-6">
+                            <label htmlFor="email" className="form-label">Email:</label>
+                            <input value={email} onChange={(e) => setEmail(e.target.value)}
+                                type="email" className="form-control" id="email" required />
+                        </div>
+
+                        <h4>Endereço:</h4>
+
+                        <div className="col-md-3">
+                            <label htmlFor="cep" className="form-label">CEP:</label>
+                            <input value={cep} onBlur={(e) => chamarCep(e.target.value)}
+                                onChange={(e) => setCep(e.target.value)} type="number"
+                                className="form-control" id="cep" required />
+                        </div>
+
+                        <div className="col-md-5">
+                            <label htmlFor="logradouro" className="form-label">Endereço:</label>
+                            <input value={logradouro} onChange={(e) => setLogradouro(e.target.value)}
+                                type="text" className="form-control" id="logradouro" required />
+                        </div>
+
+                        <div className="col-md-4">
+                            <label htmlFor="complemento" className="form-label">Complemento:</label>
+                            <input value={complemento} onChange={(e) => setComplemento(e.target.value)}
+                                type="text" className="form-control" id="complemento" />
+                        </div>
+
+                        <div className="col-md-3">
+                            <label htmlFor="cidade" className="form-label">Cidade:</label>
+                            <input value={cidade} onChange={(e) => setCidade(e.target.value)}
+                                type="text" className="form-control" id="cidade" required />
+                        </div>
+
+                        <div className="col-md-1">
+                            <label htmlFor="uf" className="form-label">UF:</label>
+                            <input value={uf} onChange={(e) => setUf(e.target.value)}
+                                type="text" className="form-control" id="uf" required />
+                        </div>
+
+                        <div className="col-md-2">
+                            <label htmlFor="status" className="form-label">Status:</label>
+                            <select value={status} onChange={(e) => setStatus(e.target.value)}
+                                className="form-control" id="status" required>
+                                <option value="Ativo">Ativo</option>
+                                <option value="Inativo">Inativo</option>
+                            </select>
+                        </div>
+
+                        <div className="col-md-12">
+                            <label htmlFor="observacao" className="form-label">Observação:</label>
+                            <textarea value={observacao} onChange={(e) => setObservacao(e.target.value)}
+                                className="form-control" id="observacao" rows="4"></textarea>
+                        </div>
                             <div className="col-md-12"> 
                                 <div className="container-botao">
                                     <button type="submit" className="btn btn-primary botao-editar">

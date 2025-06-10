@@ -9,7 +9,6 @@
   border-bottom: 1px solid #dee2e6;
 }
 
-/* Container de Métricas */
 .container-metricas {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

@@ -105,6 +105,23 @@ const ControllerContrato = {
             res.status(500).json({ mensagem: error.message });
         }
     },
+    getContratoPorId: async (req, res) => {
+        const { id } = req.params;
+
+        console.log(id);
+
+        try {
+            const contrato = await contratoController.buscarContratoPorId(id);
+
+            if (!contrato) {
+                return res.status(404).json({ mensagem: "Contrato não encontrado" });
+            }
+
+            res.status(200).json(contrato);
+        } catch (error) {
+            res.status(500).json({ mensagem: error.message });
+        }
+    },
 
 }
 
